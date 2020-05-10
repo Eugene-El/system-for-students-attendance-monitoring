@@ -1,0 +1,26 @@
+.content-container {
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+@media screen and (max-width: 600px) {
+    .content-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .content-container {
+        grid-template-columns: 215px calc(100% - 215px);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .content-container {
+        grid-template-columns: 320px calc(100% - 320px);
+    }
+}

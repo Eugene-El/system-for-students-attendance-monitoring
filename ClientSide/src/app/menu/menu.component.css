@@ -1,0 +1,8 @@
+.menu {
+    background-color: var(--tsi-blue-transparent);
+    width: 100%;
+    height: 100%;
+}
+.menu img {
+    width: 100%;
+}

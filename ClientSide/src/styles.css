@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --tsi-blue: #144774;
+    --tsi-blue-transparent: rgba(20, 71, 116, 0.8);
+    
+}
+
+html {
+    height: 100%;
+}
+body {
+    margin: 0;
+    height: 100%;
+
+    background: url(assets/images/tsi_background.jpg) no-repeat left center fixed;
+    background-size: cover;
+}
