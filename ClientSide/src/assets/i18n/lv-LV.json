@@ -1,0 +1,11 @@
+{
+    "HOME": {
+        "HELLO_MESSAGE": "Laipni lūdzam Studentu apmeklējumu uzraudzības sistēmā"
+    },
+    "HEADERS": {
+        "HOME": "Mājas lappa",
+        "FACULTIES": "Fakultātes",
+        "SUBJECTS": "Priekšmeti",
+        "STUDENTS": "Studenti"
+    }
+}

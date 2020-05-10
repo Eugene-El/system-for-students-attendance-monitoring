@@ -1,7 +1,21 @@
 <div class="menu">
-  <img src="assets/images/tsi_logo.png">
+  <a routerLink="/home">
+    <img src="assets/images/tsi_logo.png" alt="TSI">
+  </a>
 
   <nav>
-    
+    <a *ngFor="let menuItem of dataSources.menuItems" 
+      [routerLink]="menuItem.link"
+      routerLinkActive="selected" >
+      {{ menuItem.localizationKey | translate }}
+    </a>
   </nav>
+
+  <div class="menu-languages">
+    <a *ngFor="let languageItem of dataSources.languageItems"
+      [ngClass]="{ 'selected': page.currentLanguage == languageItem.code }"
+      (click)="methods.changeLanguage(languageItem.code)">
+      {{ languageItem.label }}
+    </a>
+  </div>
 </div>

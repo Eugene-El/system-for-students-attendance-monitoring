@@ -1,0 +1,11 @@
+{
+    "HOME": {
+        "HELLO_MESSAGE": "Welcome to System for student's attendance monitoring"
+    },
+    "HEADERS": {
+        "HOME": "Home",
+        "FACULTIES": "Faculties",
+        "SUBJECTS": "Subjects",
+        "STUDENTS": "Students"
+    }
+}
