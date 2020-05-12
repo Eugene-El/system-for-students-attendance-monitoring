@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAMS.REST.API", "SAMS.REST.API.csproj", "{E95EF23D-29D4-4917-B189-2CE98B731BD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAMS.REST.API", "SAMS.REST.API.csproj", "{E95EF23D-29D4-4917-B189-2CE98B731BD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAMS.BusinessLogic", "..\SAMS.BusinessLogic\SAMS.BusinessLogic.csproj", "{8175BF18-733E-4C3A-B7BD-87C24EF842C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E95EF23D-29D4-4917-B189-2CE98B731BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E95EF23D-29D4-4917-B189-2CE98B731BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E95EF23D-29D4-4917-B189-2CE98B731BD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8175BF18-733E-4C3A-B7BD-87C24EF842C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8175BF18-733E-4C3A-B7BD-87C24EF842C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8175BF18-733E-4C3A-B7BD-87C24EF842C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8175BF18-733E-4C3A-B7BD-87C24EF842C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

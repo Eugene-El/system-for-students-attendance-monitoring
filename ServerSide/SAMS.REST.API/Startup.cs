@@ -46,6 +46,7 @@ namespace SAMS.REST.API
             {
                 endpoints.MapControllers();
             });
+            
         }
     }
 }
