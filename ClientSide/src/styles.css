@@ -16,4 +16,25 @@ body {
 
     background: url(assets/images/tsi_background.jpg) no-repeat left center fixed;
     background-size: cover;
+
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.w10pct {
+    width: 10%;
+}
+.w20pct {
+    width: 20%;
+}
+.w50pct {
+    width: 50%;
+}
+.w60pct {
+    width: 60%;
+}
+.w70pct {
+    width: 70%;
+}
+.w80pct {
+    width: 80%;
 }

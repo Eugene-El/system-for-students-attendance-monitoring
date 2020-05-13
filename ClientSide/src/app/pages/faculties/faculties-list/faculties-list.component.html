@@ -1,0 +1,40 @@
+
+<h1>
+  {{ 'HEADERS.FACULTIES' | translate }}
+</h1>
+
+<button mat-raised-button color="primary" (click)="methods.addNew()">
+  <mat-icon>add</mat-icon>
+  <span> {{ 'COMMON.ADD_NEW' | translate }} </span>
+</button>
+
+<div class="facultiesTable">
+  <table mat-table [dataSource]="dataSources.faculties" matSort>
+
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="w10pct"> Code </th>
+      <td mat-cell *matCellDef="let row" > {{row.code}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="w60pct"> Title </th>
+      <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="studyProgrammeCount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="w20pct"> Study programme count </th>
+      <td mat-cell *matCellDef="let row" > {{row.studyProgrammeCount}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="w10pct"> Actions </th>
+      <td mat-cell *matCellDef="let row" > Edit </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="dataSources.displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: dataSources.displayedColumns;">
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
+</div>

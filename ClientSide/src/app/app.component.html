@@ -3,6 +3,14 @@
       <app-menu></app-menu>
   </div>
   <div style="margin: 15px;">
-    <router-outlet></router-outlet>
+    <div [hidden]="page.showLoading">
+      <router-outlet></router-outlet>
+    </div>
+    <div *ngIf="page.showLoading" class="loading-pannel">
+      <mat-progress-spinner
+        color="primary"
+        mode="indeterminate">
+      </mat-progress-spinner>
+    </div>
   </div>
 </div>

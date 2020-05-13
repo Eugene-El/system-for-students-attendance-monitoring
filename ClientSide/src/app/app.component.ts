@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingService } from './services/loading-service/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ClientSide';
+
+  constructor(
+    private loadingService: LoadingService
+  ) {
+    this.loadingService.onLoadingStatusChange.subscribe((status) => {
+      setTimeout(() => this.page.showLoading = status, 0);
+    })
+  }
+
+  page = {
+    showLoading: false as boolean
+  }
+
 }

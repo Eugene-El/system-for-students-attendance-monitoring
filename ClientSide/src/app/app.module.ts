@@ -8,6 +8,15 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
+import { FacultiesListComponent } from './pages/faculties/faculties-list/faculties-list.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // Handle no translation case
 export class CustomMissingTranslationHandler implements MissingTranslationHandler {
@@ -21,7 +30,8 @@ export class CustomMissingTranslationHandler implements MissingTranslationHandle
    declarations: [
       AppComponent,
       MenuComponent,
-      HomeComponent
+      HomeComponent,
+      FacultiesListComponent
    ],
    imports: [
       BrowserModule,
@@ -34,7 +44,14 @@ export class CustomMissingTranslationHandler implements MissingTranslationHandle
          deps: [HttpClient]
          },
          missingTranslationHandler: {provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler},
-      })
+      }),
+      BrowserAnimationsModule,
+      MatButtonModule,
+      MatIconModule,
+      MatTableModule,
+      MatPaginatorModule,
+      MatSortModule,
+      MatProgressSpinnerModule
    ],
    providers: [
       {

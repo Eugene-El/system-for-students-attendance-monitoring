@@ -24,3 +24,12 @@
         grid-template-columns: 320px calc(100% - 320px);
     }
 }
+
+.loading-pannel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.loading-pannel mat-progress-spinner {
+    margin: auto;
+}
