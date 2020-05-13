@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using SAMS.BusinessLogic;
+using SAMS.Database.EF;
+using SAMS.Database.EF.EntityFramework;
 
 namespace SAMS.REST.API.Controllers
 {
@@ -10,6 +9,10 @@ namespace SAMS.REST.API.Controllers
     [Route("api/[controller]/[action]/{id?}")]
     public class MainController : ControllerBase
     {
-
+        protected FactoryConcentrator FactoryConcentrator;
+        public MainController(DataContext dataContext)
+        {
+            FactoryConcentrator = new FactoryConcentrator(new DatabaseEF(dataContext));
+        }
     }
 }

@@ -1,8 +1,11 @@
-﻿using System.Linq;
+﻿using SAMS.BusinessLogic.Models.StudyProgrammes;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace SAMS.BusinessLogic.Entities
+namespace SAMS.BusinessLogic.Models.Faculty
 {
-    public class Faculty
+    public class FacultyModel
     {
         public int Id { get; set; }
         public string Code { get; set; }
@@ -15,6 +18,6 @@ namespace SAMS.BusinessLogic.Entities
         public string ShortTitleRu { get; set; }
         public string ShortTitleEn { get; set; }
 
-        public IQueryable<StudyProgramme> StudyProgrammes { get; set; }
+        public List<StudyProgrammeModel> StudyProgrammes { get; set; }
     }
 }
