@@ -9,7 +9,9 @@ import { MenuComponent } from './menu/menu.component';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { FacultiesListComponent } from './pages/faculties/faculties-list/faculties-list.component';
+import { FacultyFormComponent } from './pages/faculties/faculty-form/faculty-form.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,6 +19,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { StudyProgrammePopupComponent } from './pages/faculties/faculty-form/study-programme-popup/study-programme-popup.component';
 
 // Handle no translation case
 export class CustomMissingTranslationHandler implements MissingTranslationHandler {
@@ -31,7 +37,9 @@ export class CustomMissingTranslationHandler implements MissingTranslationHandle
       AppComponent,
       MenuComponent,
       HomeComponent,
-      FacultiesListComponent
+      FacultiesListComponent,
+      FacultyFormComponent,
+      StudyProgrammePopupComponent
    ],
    imports: [
       BrowserModule,
@@ -45,13 +53,18 @@ export class CustomMissingTranslationHandler implements MissingTranslationHandle
          },
          missingTranslationHandler: {provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler},
       }),
-      BrowserAnimationsModule,
+      BrowserAnimationsModule,      
+      FormsModule,
+      ReactiveFormsModule,
       MatButtonModule,
       MatIconModule,
       MatTableModule,
       MatPaginatorModule,
       MatSortModule,
-      MatProgressSpinnerModule
+      MatProgressSpinnerModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatDialogModule
    ],
    providers: [
       {

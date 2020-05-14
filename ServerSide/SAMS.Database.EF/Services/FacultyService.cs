@@ -64,6 +64,11 @@ namespace SAMS.Database.EF.Services
         {
             var facultyToDb = new EntitiesDb.Faculty().MapFromEntity(faculty);
             var facultyFromDb = dataContext.Update(facultyToDb).Entity;
+
+            var studyProgrammesFromDb = dataContext.StudyProgrammes.Where(s => s.FacultyId == facultyFromDb.Id).ToList();
+            var programmesToDelete = studyProgrammesFromDb.Where(s => !faculty.StudyProgrammes.Any(ss => ss.Id == s.Id)).ToList();
+            dataContext.StudyProgrammes.RemoveRange(programmesToDelete);
+
             dataContext.SaveChanges();
             return facultyFromDb.MapToEntity();
         }

@@ -1,4 +1,14 @@
 {
+    "COMMON": {
+        "ADD": "Add",
+        "ACTIONS": "Actions",
+        "EDIT": "Edit",
+        "FILTER": "Filter",
+        "SAVE": "Save",
+        "DELETE": "Delete",
+        "BACK": "Back",
+        "CLOSE": "Close"
+    },
     "HOME": {
         "HELLO_MESSAGE": "Welcome to System for student's attendance monitoring"
     },
@@ -7,5 +17,17 @@
         "FACULTIES": "Faculties",
         "SUBJECTS": "Subjects",
         "STUDENTS": "Students"
+    },
+    "FACULTY": {
+        "FACULTY": "Faculty",
+        "CODE": "Code",
+        "TITLE": "Title",
+        "SHORT_TITLE": "Short title",
+        "STUDY_PROGRMME_COUNT": "Study programme count"
+    },
+    "STUDY_PROGRAMMES": {
+        "STUDY_PROGRAMMES": "Study programmes",
+        "CODE": "Code",
+        "TITLE": "Title"
     }
 }

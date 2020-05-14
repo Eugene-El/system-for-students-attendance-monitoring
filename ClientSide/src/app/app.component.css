@@ -5,11 +5,20 @@
     display: grid;
     grid-template-columns: 25% 75%;
 }
+.menu-container {
+    position: fixed;
+    height: 100%;
+    width: 25%;
+}
 
 @media screen and (max-width: 600px) {
     .content-container {
         display: flex;
         flex-direction: column;
+    }
+    .menu-container {   
+        position: unset !important;
+        width: 100% !important;
     }
 }
 
@@ -17,11 +26,17 @@
     .content-container {
         grid-template-columns: 215px calc(100% - 215px);
     }
+    .menu-container {
+        width: 215px;
+    }
 }
 
 @media screen and (min-width: 1280px) {
     .content-container {
         grid-template-columns: 320px calc(100% - 320px);
+    }
+    .menu-container {
+        width: 320px;
     }
 }
 

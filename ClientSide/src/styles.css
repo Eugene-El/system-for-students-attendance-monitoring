@@ -26,6 +26,12 @@ body {
 .w20pct {
     width: 20%;
 }
+.w30pct {
+    width: 30%;
+}
+.w40pct {
+    width: 40%;
+}
 .w50pct {
     width: 50%;
 }
@@ -37,4 +43,10 @@ body {
 }
 .w80pct {
     width: 80%;
+}
+.w90pct {
+    width: 90%;
+}
+.w100pct {
+    width: 100%;
 }

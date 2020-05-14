@@ -1,0 +1,8 @@
+.faculty-form {
+    margin-top: 20px;
+}
+
+.faculty-form mat-form-field,
+.study-programm-form mat-form-field {
+    display: block;
+}

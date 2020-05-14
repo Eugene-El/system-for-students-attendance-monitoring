@@ -1,0 +1,99 @@
+
+<h1>
+  <span *ngIf="page.faculty == null || page.faculty.id == 0; else name">{{ 'HEADERS.NEW_FACULTY' | translate }}</span>
+  <ng-template #name>{{ 'FACULTY.FACULTY' | translate }} {{ page.faculty.code}}</ng-template>
+</h1>
+
+<div class="faculty-form" *ngIf="page.faculty != null">
+  <mat-form-field>
+    <mat-label>{{ 'FACULTY.CODE' | translate }}</mat-label>
+    <input required matInput [(ngModel)]="page.faculty.code">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ 'FACULTY.TITLE' | translate }} (EN)</mat-label>
+    <input required matInput [(ngModel)]="page.faculty.titleEn">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ 'FACULTY.TITLE' | translate }} (LV)</mat-label>
+    <input required matInput [(ngModel)]="page.faculty.titleLv">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ 'FACULTY.TITLE' | translate }} (RU)</mat-label>
+    <input required matInput [(ngModel)]="page.faculty.titleRu">
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-label>{{ 'FACULTY.SHORT_TITLE' | translate }} (EN)</mat-label>
+    <input required matInput [(ngModel)]="page.faculty.shortTitleEn">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ 'FACULTY.SHORT_TITLE' | translate }} (LV)</mat-label>
+    <input required matInput [(ngModel)]="page.faculty.shortTitleLv">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ 'FACULTY.SHORT_TITLE' | translate }} (RU)</mat-label>
+    <input required matInput [(ngModel)]="page.faculty.shortTitleRu">
+  </mat-form-field>
+
+</div>
+
+  
+  <h3 style="margin-right: 15px; display: inline;">{{ 'STUDY_PROGRAMMES.STUDY_PROGRAMMES' | translate }}</h3>
+  <button mat-raised-button color="primary"
+    (click)="methods.addNewStudyProgramme()">
+    <mat-icon>add</mat-icon>
+    <span> {{ 'COMMON.ADD' | translate }} </span>
+  </button>
+
+  <div class="studyProgrammesTable">
+
+    <mat-form-field class="w50pct">
+      <mat-label>{{ 'COMMON.FILTER' | translate }}</mat-label>
+      <input matInput (keyup)="methods.applyStudyProgrammeFilter($event)">
+    </mat-form-field>
+  
+    <table mat-table [dataSource]="dataSources.studyProgrammes" matSort class="w100pct">
+  
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="w20pct"> {{ 'STUDY_PROGRAMMES.CODE' | translate }} </th>
+        <td mat-cell *matCellDef="let row" > {{row.code}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="titleEn">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="w60pct"> {{ 'STUDY_PROGRAMMES.TITLE' | translate }} (EN) </th>
+        <td mat-cell *matCellDef="let row"> {{row.titleEn}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="w20pct"> {{ 'COMMON.ACTIONS' | translate }} </th>
+        <td mat-cell *matCellDef="let row" >
+          <button mat-button color="primary" (click)="methods.editStudyProgramme(row)">{{ 'COMMON.EDIT' | translate }}</button>
+          <button mat-button color="warn" (click)="methods.deleteStudyProgramme(row.id)">{{ 'COMMON.DELETE' | translate }}</button>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="['code', 'titleEn', 'actions']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['code', 'titleEn', 'actions'];">
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
+  </div>
+  
+
+<button mat-raised-button color="primary" style="margin-top: 20px;"
+  (click)="methods.save()">
+  <mat-icon>save</mat-icon>
+  <span> {{ 'COMMON.SAVE' | translate }} </span>
+</button>
+
+<button mat-raised-button style="margin-left: 15px;"
+  (click)="methods.back()">
+  <mat-icon>arrow_back</mat-icon>
+  <span> {{ 'COMMON.BACK' | translate }} </span>
+</button>
