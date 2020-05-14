@@ -1,0 +1,57 @@
+
+<h1>
+  <span *ngIf="page.subject == null || page.subject.id == 0; else name">{{ 'HEADERS.NEW_SUBJECT' | translate }}</span>
+  <ng-template #name>{{ 'SUBJECT.SUBJECT' | translate }} {{ page.subject.code }}</ng-template>
+</h1>
+
+<div class="subject-form" *ngIf="page.subject != null">
+  <mat-form-field>
+    <mat-label>{{ 'SUBJECT.CODE' | translate }}</mat-label>
+    <input required matInput [(ngModel)]="page.subject.code">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ 'SUBJECT.TITLE' | translate }} (EN)</mat-label>
+    <input required matInput [(ngModel)]="page.subject.titleEn">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ 'SUBJECT.TITLE' | translate }} (LV)</mat-label>
+    <input required matInput [(ngModel)]="page.subject.titleLv">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ 'SUBJECT.TITLE' | translate }} (RU)</mat-label>
+    <input required matInput [(ngModel)]="page.subject.titleRu">
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-label>{{ 'SUBJECT.SHORT_TITLE' | translate }} (EN)</mat-label>
+    <input required matInput [(ngModel)]="page.subject.shortTitleEn">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ 'SUBJECT.SHORT_TITLE' | translate }} (LV)</mat-label>
+    <input required matInput [(ngModel)]="page.subject.shortTitleLv">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ 'SUBJECT.SHORT_TITLE' | translate }} (RU)</mat-label>
+    <input required matInput [(ngModel)]="page.subject.shortTitleRu">
+  </mat-form-field>
+
+</div>
+  
+
+<button mat-raised-button color="primary" style="margin-top: 20px;"
+  (click)="methods.save()">
+  <mat-icon>save</mat-icon>
+  <span> {{ 'COMMON.SAVE' | translate }} </span>
+</button>
+
+<button mat-raised-button style="margin-left: 15px;"
+  (click)="methods.back()">
+  <mat-icon>arrow_back</mat-icon>
+  <span> {{ 'COMMON.BACK' | translate }} </span>
+</button>

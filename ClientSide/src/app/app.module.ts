@@ -23,6 +23,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { StudyProgrammePopupComponent } from './pages/faculties/faculty-form/study-programme-popup/study-programme-popup.component';
+import { SubjectsListComponent } from './pages/subjects/subjects-list/subjects-list.component';
+import { SubjectFormComponent } from './pages/subjects/subject-form/subject-form.component';
 
 // Handle no translation case
 export class CustomMissingTranslationHandler implements MissingTranslationHandler {
@@ -39,7 +41,9 @@ export class CustomMissingTranslationHandler implements MissingTranslationHandle
       HomeComponent,
       FacultiesListComponent,
       FacultyFormComponent,
-      StudyProgrammePopupComponent
+      StudyProgrammePopupComponent,
+      SubjectsListComponent,
+      SubjectFormComponent
    ],
    imports: [
       BrowserModule,

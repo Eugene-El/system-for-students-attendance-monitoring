@@ -9,7 +9,7 @@ using System.Text;
 
 namespace SAMS.BusinessLogic.Factories
 {
-    public class FacultyFactory
+    public class FacultyFactory : MainFactory
     {
         protected IDatabase Database { get; private set; }
         public FacultyFactory(IDatabase database)
@@ -17,10 +17,6 @@ namespace SAMS.BusinessLogic.Factories
             Database = database;
         }
 
-        private static string SelectLocalization(Language language, string eng, string lv, string ru)
-        {
-            return language == Language.English ? eng : (language == Language.Latvian ? lv : ru);
-        }
 
         public IQueryable<FacultyGridModel> GetAllForGrid(Language language)
         {
@@ -89,7 +85,7 @@ namespace SAMS.BusinessLogic.Factories
         {
             if (facultyModel != null)
             {
-                Database.FacultyService.Update(facultyModel.Id, new Entities.Faculty
+                Database.FacultyService.Update(new Entities.Faculty
                 {
                     Id = facultyModel.Id,
                     Code = facultyModel.Code,

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { FacultyGridModel } from '../models/facultyGridModel';
 import { MatPaginator } from '@angular/material/paginator';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-faculties-list',
@@ -18,12 +19,14 @@ export class FacultiesListComponent implements OnInit {
   constructor(
     private facultiesService: FacultiesService,
     private loadingService: LoadingService,
+    private translateService: TranslateService,
     private router: Router
   ) { }
 
   ngOnInit() {
     this.loadingService.endLoading();
     this.methods.getFaculties();
+    this.translateService.onLangChange.subscribe(() => { this.methods.getFaculties(); });
   }
   
   page = {

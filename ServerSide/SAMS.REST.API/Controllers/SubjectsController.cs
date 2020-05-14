@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SAMS.BusinessLogic.Models.Common;
-using SAMS.BusinessLogic.Models.Faculty;
+using SAMS.BusinessLogic.Models.Subjects;
 using SAMS.Database.EF.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -9,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace SAMS.REST.API.Controllers
 {
-    public class FacultiesController : MainController
+    public class SubjectsController : MainController
     {
-        public FacultiesController(DataContext dataContext) : base(dataContext) { }
+        public SubjectsController(DataContext dataContext) : base(dataContext) { }
 
         [HttpGet]
         public IActionResult GetAllForGrid()
         {
             try
             {
-                return Ok(FactoryConcentrator.FacultyFactory.GetAllForGrid(CurrentLanguage).AsEnumerable());
+                return Ok(FactoryConcentrator.SubjectFactory.GetAllForGrid(CurrentLanguage).AsEnumerable());
             }
             catch (Exception exception)
             {
@@ -31,7 +30,7 @@ namespace SAMS.REST.API.Controllers
         {
             try
             {
-                return Ok(FactoryConcentrator.FacultyFactory.Get(id));
+                return Ok(FactoryConcentrator.SubjectFactory.Get(id));
             }
             catch (Exception exception)
             {
@@ -40,16 +39,16 @@ namespace SAMS.REST.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Save(FacultyModel facultyModel)
+        public IActionResult Save(SubjectModel subjectModel)
         {
             try
             {
-                if (facultyModel != null)
+                if (subjectModel != null)
                 {
-                    if (facultyModel.Id == 0)
-                        FactoryConcentrator.FacultyFactory.Add(facultyModel);
+                    if (subjectModel.Id == 0)
+                        FactoryConcentrator.SubjectFactory.Add(subjectModel);
                     else
-                        FactoryConcentrator.FacultyFactory.Update(facultyModel);
+                        FactoryConcentrator.SubjectFactory.Update(subjectModel);
                 }
                 return Ok();
             }

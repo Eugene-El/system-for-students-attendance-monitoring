@@ -25,5 +25,17 @@ namespace SAMS.BusinessLogic
             }
         }
 
+
+        private SubjectFactory subjectFactory;
+        public SubjectFactory SubjectFactory
+        {
+            get
+            {
+                if (subjectFactory == null)
+                    subjectFactory = new SubjectFactory(Database);
+                return subjectFactory;
+            }
+        }
+
     }
 }

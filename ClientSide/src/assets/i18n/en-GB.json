@@ -29,5 +29,11 @@
         "STUDY_PROGRAMMES": "Study programmes",
         "CODE": "Code",
         "TITLE": "Title"
+    },
+    "SUBJECT": {
+        "NEW_SUBJECT": "New subject",
+        "CODE": "Code",
+        "TITLE": "Title",
+        "SHORT_TITLE": "Short title"
     }
 }

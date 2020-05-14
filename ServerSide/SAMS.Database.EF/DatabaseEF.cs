@@ -26,5 +26,16 @@ namespace SAMS.Database.EF
                 return facultyService;
             }
         }
+
+        private SubjectService subjectService;
+        public ISubjectService SubjectService
+        {
+            get
+            {
+                if (subjectService == null)
+                    subjectService = new SubjectService(dataContext);
+                return subjectService;
+            }
+        }
     }
 }

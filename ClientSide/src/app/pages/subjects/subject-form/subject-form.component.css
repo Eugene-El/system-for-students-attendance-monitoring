@@ -1,0 +1,7 @@
+.subject-form {
+    margin-top: 20px;
+}
+
+.subject-form mat-form-field {
+    display: block;
+}

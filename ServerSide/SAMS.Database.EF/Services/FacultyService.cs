@@ -2,10 +2,7 @@
 using SAMS.BusinessLogic.DatabaseInterfaces.Services;
 using SAMS.BusinessLogic.Entities;
 using SAMS.Database.EF.EntityFramework;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SAMS.Database.EF.Services
 {
@@ -60,7 +57,7 @@ namespace SAMS.Database.EF.Services
         }
 
 
-        public Faculty Update(int id, Faculty faculty)
+        public Faculty Update(Faculty faculty)
         {
             var facultyToDb = new EntitiesDb.Faculty().MapFromEntity(faculty);
             var facultyFromDb = dataContext.Update(facultyToDb).Entity;

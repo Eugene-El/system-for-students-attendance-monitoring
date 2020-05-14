@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using SAMS.Database.EF.EntityFramework;
+using System;
 
 namespace SAMS.REST.API
 {
@@ -34,6 +35,15 @@ namespace SAMS.REST.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var context = services.GetRequiredService<DataContext>();
+
+                if (context.Database.IsSqlServer())
+                    context.Database.Migrate();
             }
 
             app.UseHttpsRedirection();
