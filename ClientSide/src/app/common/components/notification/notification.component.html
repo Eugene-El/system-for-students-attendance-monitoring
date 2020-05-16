@@ -1,0 +1,11 @@
+<div id="app-notification"
+  (mouseenter)="methods.mouseEnter()"
+  (mouseleave)="methods.mouseLeave()"
+  [ngClass]="{ 'show': page.visible,
+    'app-notification-success': page.isSuccess,
+    'app-notification-error': page.isError }">
+  <div class="app-notification-content">
+    {{ page.message }}
+  </div>
+  <div id="app-notification-progress-bar"></div>
+</div>

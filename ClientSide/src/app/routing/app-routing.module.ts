@@ -5,6 +5,8 @@ import { FacultiesListComponent } from '../pages/faculties/faculties-list/facult
 import { FacultyFormComponent } from '../pages/faculties/faculty-form/faculty-form.component';
 import { SubjectsListComponent } from '../pages/subjects/subjects-list/subjects-list.component';
 import { SubjectFormComponent } from '../pages/subjects/subject-form/subject-form.component';
+import { StudentsListComponent } from '../pages/students/students-list/students-list.component';
+import { StudentFormComponent } from '../pages/students/student-form/student-form.component';
 
 const routes: Routes = [
 
@@ -13,6 +15,8 @@ const routes: Routes = [
     { path: 'faculties/:id', component: FacultyFormComponent },
     { path: 'subjects', component: SubjectsListComponent },
     { path: 'subjects/:id', component: SubjectFormComponent },
+    { path: 'students', component: StudentsListComponent },
+    { path: 'students/:id', component: StudentFormComponent },
     { path: '**', redirectTo: '/home' }
 
 ];

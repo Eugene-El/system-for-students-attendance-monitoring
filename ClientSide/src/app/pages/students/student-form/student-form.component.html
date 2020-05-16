@@ -1,0 +1,101 @@
+
+<h1>
+  <span *ngIf="page.student == null || page.student.id == 0; else name">{{ 'STUDENT.NEW_STUDENT' | translate }}</span>
+  <ng-template #name>{{ 'STUDENT.STUDENT' | translate }} {{ page.student.code }}</ng-template>
+</h1>
+
+<div class="m20t data-form" *ngIf="page.student != null">
+  <mat-form-field class="short-field">
+    <mat-label>{{ 'STUDENT.CODE' | translate }}</mat-label>
+    <input required matInput [(ngModel)]="page.student.code">
+  </mat-form-field>
+
+  <mat-form-field class="long-field">
+    <mat-label>{{ 'STUDENT.NAME' | translate }}</mat-label>
+    <input required matInput [(ngModel)]="page.student.name">
+  </mat-form-field>
+  
+  <mat-form-field class="long-field">
+    <mat-label>{{ 'STUDENT.SURNAME' | translate }}</mat-label>
+    <input required matInput [(ngModel)]="page.student.surname">
+  </mat-form-field>
+
+  <mat-form-field class="long-field">
+    <mat-label>{{ 'STUDENT.FACULTY' | translate }}</mat-label>
+    <mat-select required (selectionChange)="methods.onFacultyChange($event)" [(ngModel)]="page.facultyId">
+      <mat-option *ngFor="let faculty of dataSources.faculties" [value]="faculty.id">{{ faculty.title }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="long-field">
+    <mat-label>{{ 'STUDENT.STUDY_PROGRAMME' | translate }}</mat-label>
+    <mat-select required [disabled]="dataSources.studyProgrammes.length <= 0" [(ngModel)]="page.student.studyProgrammeId">
+      <mat-option *ngFor="let studyProgramme of dataSources.studyProgrammes" [value]="studyProgramme.id">{{ studyProgramme.title }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="medium-field">
+    <mat-label>{{ 'STUDENT.LANGUAGE' | translate }}</mat-label>
+    <mat-select required [(ngModel)]="page.student.language">
+      <mat-option *ngFor="let language of dataSources.studentLanguages" [value]="language.id">{{ language.title | translate }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field class="medium-field">
+    <mat-label>{{ 'STUDENT.LEARNING_FORM' | translate }}</mat-label>
+    <mat-select required [(ngModel)]="page.student.learningForm">
+      <mat-option *ngFor="let learningForm of dataSources.studentLearningForms" [value]="learningForm.id">{{ learningForm.title | translate }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="medium-field">
+    <mat-label>{{ 'STUDENT.STATUS' | translate }}</mat-label>
+    <mat-select required [(ngModel)]="page.student.status">
+      <mat-option *ngFor="let status of dataSources.studentStatuses" [value]="status.id">{{ status.title | translate }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="medium-field">
+    <mat-label>{{ 'STUDENT.PHONE' | translate }}</mat-label>
+    <input required matInput [(ngModel)]="page.student.phone1">
+  </mat-form-field>
+
+  <mat-form-field class="medium-field">
+    <mat-label>{{ 'STUDENT.PHONE_2' | translate }}</mat-label>
+    <input matInput [(ngModel)]="page.student.phone2">
+  </mat-form-field>
+
+  <mat-form-field class="medium-field">
+    <mat-label>{{ 'STUDENT.EMAIL' | translate }}</mat-label>
+    <input required matInput [(ngModel)]="page.student.email1">
+  </mat-form-field>
+
+  <mat-form-field class="medium-field">
+    <mat-label>{{ 'STUDENT.EMAIL_2' | translate }}</mat-label>
+    <input matInput [(ngModel)]="page.student.email2">
+  </mat-form-field>
+
+  <mat-form-field class="medium-field">
+    <mat-label>{{ 'STUDENT.SKYPE' | translate }}</mat-label>
+    <input matInput [(ngModel)]="page.student.skype">
+  </mat-form-field>
+
+  
+  <mat-form-field class="long-field">
+    <mat-label>{{ 'STUDENT.COMMENT' | translate }}</mat-label>
+    <textarea matInput [(ngModel)]="page.student.comment" style="height: 100px;"></textarea>
+  </mat-form-field>
+</div>
+  
+
+<button mat-raised-button color="primary" style="margin-top: 20px;"
+  (click)="methods.save()">
+  <mat-icon>save</mat-icon>
+  <span> {{ 'COMMON.SAVE' | translate }} </span>
+</button>
+
+<button mat-raised-button style="margin-left: 15px;"
+  (click)="methods.back()">
+  <mat-icon>arrow_back</mat-icon>
+  <span> {{ 'COMMON.BACK' | translate }} </span>
+</button>

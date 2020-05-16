@@ -4,39 +4,39 @@
   <ng-template #name>{{ 'SUBJECT.SUBJECT' | translate }} {{ page.subject.code }}</ng-template>
 </h1>
 
-<div class="subject-form" *ngIf="page.subject != null">
-  <mat-form-field>
+<div class="m20t data-form" *ngIf="page.subject != null">
+  <mat-form-field class="short-field">
     <mat-label>{{ 'SUBJECT.CODE' | translate }}</mat-label>
     <input required matInput [(ngModel)]="page.subject.code">
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="long-field">
     <mat-label>{{ 'SUBJECT.TITLE' | translate }} (EN)</mat-label>
     <input required matInput [(ngModel)]="page.subject.titleEn">
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="long-field">
     <mat-label>{{ 'SUBJECT.TITLE' | translate }} (LV)</mat-label>
     <input required matInput [(ngModel)]="page.subject.titleLv">
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="long-field">
     <mat-label>{{ 'SUBJECT.TITLE' | translate }} (RU)</mat-label>
     <input required matInput [(ngModel)]="page.subject.titleRu">
   </mat-form-field>
 
 
-  <mat-form-field>
+  <mat-form-field class="medium-field">
     <mat-label>{{ 'SUBJECT.SHORT_TITLE' | translate }} (EN)</mat-label>
     <input required matInput [(ngModel)]="page.subject.shortTitleEn">
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="medium-field">
     <mat-label>{{ 'SUBJECT.SHORT_TITLE' | translate }} (LV)</mat-label>
     <input required matInput [(ngModel)]="page.subject.shortTitleLv">
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="medium-field">
     <mat-label>{{ 'SUBJECT.SHORT_TITLE' | translate }} (RU)</mat-label>
     <input required matInput [(ngModel)]="page.subject.shortTitleRu">
   </mat-form-field>

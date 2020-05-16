@@ -22,9 +22,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 import { StudyProgrammePopupComponent } from './pages/faculties/faculty-form/study-programme-popup/study-programme-popup.component';
 import { SubjectsListComponent } from './pages/subjects/subjects-list/subjects-list.component';
 import { SubjectFormComponent } from './pages/subjects/subject-form/subject-form.component';
+import { StudentsListComponent } from './pages/students/students-list/students-list.component';
+import { StudentFormComponent } from './pages/students/student-form/student-form.component';
+import { NotificationComponent } from './common/components/notification/notification.component';
 
 // Handle no translation case
 export class CustomMissingTranslationHandler implements MissingTranslationHandler {
@@ -38,12 +42,15 @@ export class CustomMissingTranslationHandler implements MissingTranslationHandle
    declarations: [
       AppComponent,
       MenuComponent,
+      NotificationComponent,
       HomeComponent,
       FacultiesListComponent,
       FacultyFormComponent,
       StudyProgrammePopupComponent,
       SubjectsListComponent,
-      SubjectFormComponent
+      SubjectFormComponent,
+      StudentsListComponent,
+      StudentFormComponent
    ],
    imports: [
       BrowserModule,
@@ -68,7 +75,8 @@ export class CustomMissingTranslationHandler implements MissingTranslationHandle
       MatProgressSpinnerModule,
       MatFormFieldModule,
       MatInputModule,
-      MatDialogModule
+      MatDialogModule,
+      MatSelectModule
    ],
    providers: [
       {

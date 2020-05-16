@@ -6,5 +6,7 @@ namespace SAMS.BusinessLogic.DatabaseInterfaces
     {
         public IFacultyService FacultyService { get; }
         public ISubjectService SubjectService { get; }
+        public IStudentService StudentService { get; }
+        public IStudentAttendanceService StudentAttendanceService { get; }
     }
 }

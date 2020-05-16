@@ -1,0 +1,59 @@
+#app-notification {
+    position: fixed;
+    color: var(--tsi-white);
+    background-color: var(--tsi-info);
+    border-radius: 4px;
+
+    left: calc(25% + 15px);
+    right: 15px;
+
+    visibility: hidden;
+    bottom: 0;
+    opacity: 0;
+    transition: 1s;
+    transition-property: opacity, bottom, visibility;
+}
+#app-notification .app-notification-content {
+    padding: 12px;
+}
+
+@media screen and (max-width: 600px) {
+    #app-notification {
+        left: 15px;
+        right: 15px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 850px) {
+    #app-notification {
+        left: 230px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    #app-notification {
+        left: 335px;
+    }
+}
+
+#app-notification.show {
+    visibility: visible;
+    bottom: 15px;
+    opacity: 1;
+}
+
+#app-notification.app-notification-success {
+    background-color: var(--tsi-success);
+}
+#app-notification.app-notification-error {
+    background-color: var(--tsi-error);
+}
+
+#app-notification #app-notification-progress-bar {
+    border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    width: 0;
+
+    transition: 100ms;
+    transition-property: width;
+}

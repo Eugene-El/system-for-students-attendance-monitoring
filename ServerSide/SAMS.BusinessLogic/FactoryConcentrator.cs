@@ -37,5 +37,17 @@ namespace SAMS.BusinessLogic
             }
         }
 
+
+        private StudentFacotry studentFacotry;
+        public StudentFacotry StudentFacotry
+        {
+            get
+            {
+                if (studentFacotry == null)
+                    studentFacotry = new StudentFacotry(Database);
+                return studentFacotry;
+            }
+        }
+
     }
 }

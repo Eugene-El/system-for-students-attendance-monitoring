@@ -1,4 +1,6 @@
-﻿namespace SAMS.Database.EF.EntitiesDb
+﻿using System.Collections.Generic;
+
+namespace SAMS.Database.EF.EntitiesDb
 {
     public class StudyProgramme
     {
@@ -12,6 +14,7 @@
         public int FacultyId { get; set; }
         public Faculty Faculty { get; set; }
 
+        public virtual ICollection<Student> Students { get; set; }
 
         public BusinessLogic.Entities.StudyProgramme MapToEntity()
         {

@@ -3,8 +3,11 @@
     --tsi-blue-transparent: rgba(20, 71, 116, 0.8);
 
     --tsi-blue-dark: #113c61;
-
     --tsi-white: #e0e0e0;
+
+    --tsi-success: #39882e;
+    --tsi-info: #30597c;
+    --tsi-error: #c04141;
 }
 
 html {
@@ -49,4 +52,21 @@ body {
 }
 .w100pct {
     width: 100%;
+}
+
+/* TODO: add viewports */
+.data-form mat-form-field {
+    display: block;
+}
+.data-form mat-form-field.short-field {
+    width: 20%;
+}
+.data-form mat-form-field.medium-field {
+    width: 55%;
+}
+.data-form mat-form-field.long-field {
+    width: 85%;
+}
+.m20t {
+    margin-top: 20px;
 }

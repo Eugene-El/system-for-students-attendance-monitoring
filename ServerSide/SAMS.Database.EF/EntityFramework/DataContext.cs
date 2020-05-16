@@ -11,10 +11,14 @@ namespace SAMS.Database.EF.EntityFramework
         public DbSet<Faculty> Faculties { get; set; }
         public DbSet<StudyProgramme> StudyProgrammes { get; set; }
         public DbSet<Subject> Subjects { get; set; }
-
+        public DbSet<Student> Students { get; set; }
+        public DbSet<StudentAttendance> StudentAttendances { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<StudentAttendance>()
+                .Property(p => p.Date)
+                .HasColumnType("date");
         }
     }
 }

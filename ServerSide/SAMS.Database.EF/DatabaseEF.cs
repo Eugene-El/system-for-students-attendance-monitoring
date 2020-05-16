@@ -37,5 +37,28 @@ namespace SAMS.Database.EF
                 return subjectService;
             }
         }
+
+
+        private StudentService studentService;
+        public IStudentService StudentService
+        {
+            get
+            {
+                if (studentService == null)
+                    studentService = new StudentService(dataContext);
+                return studentService;
+            }
+        }
+
+        private StudentAttendanceService studentAttendanceService;
+        public IStudentAttendanceService StudentAttendanceService
+        {
+            get
+            {
+                if (studentAttendanceService == null)
+                    studentAttendanceService = new StudentAttendanceService(dataContext);
+                return studentAttendanceService;
+            }
+        }
     }
 }

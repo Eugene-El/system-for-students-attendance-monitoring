@@ -16,6 +16,8 @@ namespace SAMS.Database.EF.EntitiesDb
         public string ShortTitleRu { get; set; }
         public string ShortTitleEn { get; set; }
 
+        public ICollection<StudentAttendance> StudentAttendances { get; set; }
+
         public BusinessLogic.Entities.Subject MapToEntity()
         {
             return new BusinessLogic.Entities.Subject

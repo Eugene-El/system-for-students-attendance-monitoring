@@ -35,5 +35,40 @@
         "CODE": "Code",
         "TITLE": "Title",
         "SHORT_TITLE": "Short title"
+    },
+    "STUDENT": {
+        "STUDENT": "Student",
+        "NEW_STUDENT": "New student",
+        "CODE": "Code",
+        "NAME": "Name",
+        "SURNAME": "Surname",
+        "FULL_NAME": "Full name",
+        "FACULTY": "Faculty",
+        "STUDY_PROGRAMME": "Study programme",
+        "LANGUAGE": "Language",
+        "LEARNING_FORM": "Learning form",
+        "STATUS": "Status",
+        "PHONE": "Phone",
+        "PHONE_2": "Phone 2",
+        "EMAIL": "Email",
+        "EMAIL_2": "Email 2",
+        "SKYPE": "Skype",
+        "COMMENT": "Comment",
+        "ATTENDANCE": "Attendance",
+        "LEARNING_FORMS": {
+            "DAYTIME": "Daytime",
+            "EVENINGS": "Evenings",
+            "WEEKENDS": "Weekends",
+            "DISTANCE": "Distance"
+        },
+        "LANGUAGES": {
+            "ENGLISH": "English",
+            "LATVIAN": "Latvian",
+            "RUSSIAN": "Russian"
+        },
+        "STATUSES": {
+            "ACTIVE": "Active",
+            "INACTIVE": "Inactive"
+        }
     }
 }

@@ -30,6 +30,21 @@ namespace SAMS.BusinessLogic.Factories
                 });
         }
 
+        public IQueryable<ExtraSelectModel> GetAllSelectModel(Language language)
+        {
+            return Database.FacultyService.GetAll()
+                .Select(f => new ExtraSelectModel
+                {
+                    Id = f.Id,
+                    Title = SelectLocalization(language, f.TitleEn, f.TitleLv, f.TitleRu),
+                    Options = f.StudyProgrammes.Select(s => new SelectModel
+                        {
+                            Id = s.Id,
+                            Title = SelectLocalization(language, s.TitleEn, s.TitleLv, s.TitleRu)
+                        })
+                });
+        }
+
         public FacultyModel Get(int id)
         {
             var faculty = Database.FacultyService.Get(id);
