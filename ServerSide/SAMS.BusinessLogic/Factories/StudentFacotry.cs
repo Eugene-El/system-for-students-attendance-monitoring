@@ -63,6 +63,23 @@ namespace SAMS.BusinessLogic.Factories
                 };
         }
 
+        public StudentShortModel GetShortModel(Language language, int id)
+        {
+            var faculties = Database.FacultyService.GetAll();
+            var studyProgrammes = faculties.SelectMany(f => f.StudyProgrammes);
+            var student = Database.StudentService.Get(id);
+            var studyProgramme = studyProgrammes.FirstOrDefault(s => s.Id == student.StudyProgrammeId);
+            return student == null ?
+                null : new StudentShortModel
+                {
+                    Id = student.Id,
+                    Code = student.Code,
+                    FullName = student.Surname + " " + student.Name,
+                    StudyProgrammeTitle = studyProgramme != null ?
+                        SelectLocalization(language, studyProgramme.TitleEn, studyProgramme.TitleLv, studyProgramme.TitleRu) : ""
+                };
+        }
+
         public void Add(StudentModel studentModel)
         {
             if (studentModel != null)

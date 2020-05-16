@@ -23,12 +23,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
+
 import { StudyProgrammePopupComponent } from './pages/faculties/faculty-form/study-programme-popup/study-programme-popup.component';
 import { SubjectsListComponent } from './pages/subjects/subjects-list/subjects-list.component';
 import { SubjectFormComponent } from './pages/subjects/subject-form/subject-form.component';
 import { StudentsListComponent } from './pages/students/students-list/students-list.component';
 import { StudentFormComponent } from './pages/students/student-form/student-form.component';
 import { NotificationComponent } from './common/components/notification/notification.component';
+import { StudentAttendancesListComponent } from './pages/studentAttendances/student-attendances-list/student-attendances-list.component';
+import { StudentAttendanceFormComponent } from './pages/studentAttendances/student-attendance-form/student-attendance-form.component';
 
 // Handle no translation case
 export class CustomMissingTranslationHandler implements MissingTranslationHandler {
@@ -37,6 +43,17 @@ export class CustomMissingTranslationHandler implements MissingTranslationHandle
       return keyParts.pop();
    }
 }
+export const MY_FORMATS = {
+   parse: {
+      dateInput: 'LL',
+   },
+   display: {
+      dateInput: 'DD.MM.YYYY',
+      monthYearLabel: 'MMM YYYY',
+      dateA11yLabel: 'LL',
+      monthYearA11yLabel: 'MMMM YYYY',
+   },
+ };
 
 @NgModule({
    declarations: [
@@ -50,7 +67,9 @@ export class CustomMissingTranslationHandler implements MissingTranslationHandle
       SubjectsListComponent,
       SubjectFormComponent,
       StudentsListComponent,
-      StudentFormComponent
+      StudentFormComponent,
+      StudentAttendancesListComponent,
+      StudentAttendanceFormComponent
    ],
    imports: [
       BrowserModule,
@@ -76,7 +95,10 @@ export class CustomMissingTranslationHandler implements MissingTranslationHandle
       MatFormFieldModule,
       MatInputModule,
       MatDialogModule,
-      MatSelectModule
+      MatSelectModule,
+      MatDatepickerModule,
+      MatNativeDateModule
+      
    ],
    providers: [
       {
@@ -84,6 +106,15 @@ export class CustomMissingTranslationHandler implements MissingTranslationHandle
          useFactory: appInitializerFactory,
          deps: [TranslateService],
          multi: true
+      },
+      {
+         provide: DateAdapter,
+         useClass: MomentDateAdapter,
+         deps: [MAT_DATE_LOCALE]
+      },
+      {
+         provide: MAT_DATE_FORMATS,
+         useValue: MY_FORMATS
       },
    ],
    bootstrap: [

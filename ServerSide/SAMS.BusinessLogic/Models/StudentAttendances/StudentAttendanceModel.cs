@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SAMS.BusinessLogic.Entities
+namespace SAMS.BusinessLogic.Models.StudentAttendances
 {
-    public class StudentAttendance
+    public class StudentAttendanceModel
     {
         public int Id { get; set; }
         public int StudentId { get; set; }

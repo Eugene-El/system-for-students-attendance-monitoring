@@ -28,7 +28,12 @@ export class NotificationService {
   }
 
   public processError(error: HttpErrorResponse) {
-    this.error(error.error);
+    let errorString = "";
+    if (typeof(error.error) == "string")
+      errorString = error.error;
+    else
+      errorString = error.message;
+    this.error(errorString);
   }
 
 }

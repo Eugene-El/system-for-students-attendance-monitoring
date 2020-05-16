@@ -49,5 +49,17 @@ namespace SAMS.BusinessLogic
             }
         }
 
+
+        private StudentAttendanceFactory studentAttendanceFactory;
+        public StudentAttendanceFactory StudentAttendanceFactory
+        {
+            get
+            {
+                if (studentAttendanceFactory == null)
+                    studentAttendanceFactory = new StudentAttendanceFactory(Database);
+                return studentAttendanceFactory;
+            }
+        }
+
     }
 }

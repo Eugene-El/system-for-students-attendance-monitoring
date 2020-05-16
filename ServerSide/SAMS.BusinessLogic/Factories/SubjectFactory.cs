@@ -25,6 +25,16 @@ namespace SAMS.BusinessLogic.Factories
                 });
         }
 
+        public IQueryable<SelectModel> GetAllSelectModel(Language language)
+        {
+            return Database.SubjectService.GetAll()
+                .Select(s => new SelectModel
+                {
+                    Id = s.Id,
+                    Title = SelectLocalization(language, s.TitleEn, s.TitleLv, s.TitleRu)
+                });
+        }
+
         public SubjectModel Get(int id)
         {
             var subject = Database.SubjectService.Get(id);

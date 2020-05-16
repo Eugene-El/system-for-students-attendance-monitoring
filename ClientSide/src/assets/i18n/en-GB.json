@@ -7,7 +7,8 @@
         "SAVE": "Save",
         "DELETE": "Delete",
         "BACK": "Back",
-        "CLOSE": "Close"
+        "CLOSE": "Close",
+        "SUCESSFULLY_SAVED": "Successfully saved"
     },
     "HOME": {
         "HELLO_MESSAGE": "Welcome to System for student's attendance monitoring"
@@ -70,5 +71,15 @@
             "ACTIVE": "Active",
             "INACTIVE": "Inactive"
         }
+    },
+    "STUDENT_ATTENDANCE": {
+        "STUDENT_ATTENDANCE": "Student attendance",
+        "STUDY_PROGRAMME": "Study programme",
+        "SUBJECT": "Subject",
+        "DATE": "Date",
+        "ATTENDANCE": "Ateendance",
+        "NECESSARY_ATTENDANCE": "Necessary attendance",
+        "PROCENT": "Procent",
+        "NEW_STUDENT_ATTENDANCE": "New student attendance record"
     }
 }

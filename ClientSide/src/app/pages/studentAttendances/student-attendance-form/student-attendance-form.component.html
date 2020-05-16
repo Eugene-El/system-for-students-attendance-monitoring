@@ -1,0 +1,49 @@
+
+<h1>
+  <span *ngIf="page.studentAttendance == null || page.studentAttendance.id == 0; else name">{{ 'STUDENT_ATTENDANCE.NEW_STUDENT_ATTENDANCE' | translate }}</span>
+  <ng-template #name>{{ 'STUDENT_ATTENDANCE.STUDENT_ATTENDANCE' | translate }}</ng-template>
+</h1>
+
+<div class="m20t data-form" *ngIf="page.studentAttendance != null">
+  
+  <mat-form-field class="short-field">
+    <mat-label>{{ 'STUDENT_ATTENDANCE.DATE' | translate }}</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="page.studentAttendance.date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="medium-field">
+    <mat-label>{{ 'STUDENT_ATTENDANCE.SUBJECT' | translate }}</mat-label>
+    <mat-select required [(ngModel)]="page.studentAttendance.subjectId">
+      <mat-option *ngFor="let subject of dataSources.subjects" [value]="subject.id">{{ subject.title }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field class="short-field">
+    <mat-label>{{ 'STUDENT_ATTENDANCE.ATTENDANCE' | translate }}</mat-label>
+    <input type="number" min="0" [max]="page.studentAttendance.necessaryAttendance"
+      [disabled]="page.studentAttendance.necessaryAttendance <= 0"
+      required matInput [(ngModel)]="page.studentAttendance.realAttendance">
+  </mat-form-field>
+
+  <mat-form-field class="short-field">
+    <mat-label>{{ 'STUDENT_ATTENDANCE.NECESSARY_ATTENDANCE' | translate }}</mat-label>
+    <input type="number" min="0" required matInput [(ngModel)]="page.studentAttendance.necessaryAttendance">
+  </mat-form-field>
+
+
+</div>
+  
+
+<button mat-raised-button color="primary" style="margin-top: 20px;"
+  (click)="methods.save()">
+  <mat-icon>save</mat-icon>
+  <span> {{ 'COMMON.SAVE' | translate }} </span>
+</button>
+
+<button mat-raised-button style="margin-left: 15px;"
+  (click)="methods.back()">
+  <mat-icon>arrow_back</mat-icon>
+  <span> {{ 'COMMON.BACK' | translate }} </span>
+</button>

@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { StudentGridModel } from '../models/studentGridModel';
 import { MatPaginator } from '@angular/material/paginator';
 import { StudentsService } from '../services/students.service';
+import { NotificationService } from 'src/app/services/notification-service/notification.service';
 
 @Component({
   selector: 'app-students-list',
@@ -20,6 +21,7 @@ export class StudentsListComponent implements OnInit {
     private studentsService: StudentsService,
     private loadingService: LoadingService,
     private translateService: TranslateService,
+    private notificationService: NotificationService,
     private router: Router
     ) { }
 
@@ -43,6 +45,7 @@ export class StudentsListComponent implements OnInit {
         this.dataSources.students.paginator = this.paginator;
         this.loadingService.endLoading();
       }).catch((error) => {
+        this.notificationService.processError(error);
         this.loadingService.endLoading();
       });
     },
@@ -60,7 +63,7 @@ export class StudentsListComponent implements OnInit {
       this.router.navigate(['students', id]);
     },
     goToAttendance: (id) => {
-      this.router.navigate(['students', 'attendance', id]);
+      this.router.navigate(['students', 'attendances', id]);
     }
   }
 
