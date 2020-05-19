@@ -23,6 +23,25 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+/* Change material white to a bit transparent */
+.mat-table,
+.mat-paginator {
+    background: rgba(255, 255, 255, 0.85);
+}
+.mat-table thead, .mat-table tbody, .mat-table tfoot, mat-header-row, mat-row, mat-footer-row, [mat-header-row], [mat-row], [mat-footer-row], .mat-table-sticky {
+    background: unset;
+}
+/* Fix material styles */
+html {
+    top: 0 !important;
+    left: 0 !important;
+}
+.cdk-global-scrollblock {
+    position: unset !important;
+    overflow-y: unset !important;
+}
+
+
 .w10pct {
     width: 10%;
 }

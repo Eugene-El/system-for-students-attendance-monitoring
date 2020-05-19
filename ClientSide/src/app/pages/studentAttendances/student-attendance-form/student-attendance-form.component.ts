@@ -58,6 +58,11 @@ export class StudentAttendanceFormComponent implements OnInit {
         });
     },
     save: () => {
+      if (this.page.studentAttendance.subjectId == null || this.page.studentAttendance.necessaryAttendance == 0) {
+        this.notificationService.fillAllFields();
+        return;
+      }
+
       this.loadingService.addLoading();
       if ((this.page.studentAttendance.date as any).toDate) // fix date
       {
@@ -70,7 +75,7 @@ export class StudentAttendanceFormComponent implements OnInit {
       this.studentAttendancesService.save(this.page.studentAttendance)
         .then(() => {
           this.loadingService.endLoading();
-          this.notificationService.success("COMMON.SUCESSFULLY_SAVED");
+          this.notificationService.successfullySaved();
           this.methods.back();
         })
         .catch((error) => {

@@ -19,6 +19,7 @@ namespace SAMS.Database.EF.Services
         {
             return dataContext.Faculties
                 .Include(f => f.StudyProgrammes)
+                .ThenInclude(s => s.Students)
                 .Select(f => new Faculty
                 {
                     Id = f.Id,
@@ -36,7 +37,8 @@ namespace SAMS.Database.EF.Services
                             Code = s.Code,
                             TitleEn = s.TitleEn,
                             TitleLv = s.TitleLv,
-                            TitleRu = s.TitleRu
+                            TitleRu = s.TitleRu,
+                            StudentCount = s.Students != null ? s.Students.Count() : 0
                         }).AsQueryable()
                 });
         }
@@ -45,12 +47,15 @@ namespace SAMS.Database.EF.Services
         {
             var faculty = dataContext.Faculties
                 .Include(f => f.StudyProgrammes)
+                .ThenInclude(s => s.Students)
                 .FirstOrDefault(f => f.Id == id);
             return faculty == null ? null : faculty.MapToEntity();
         }
 
         public Faculty Add(Faculty faculty)
         {
+            CheckCodeUniqueness(faculty);
+
             var facultyToDb = new EntitiesDb.Faculty().MapFromEntity(faculty);
             var facultyFromDb = dataContext.Add(facultyToDb).Entity;
             dataContext.SaveChanges();
@@ -60,6 +65,8 @@ namespace SAMS.Database.EF.Services
 
         public Faculty Update(Faculty faculty)
         {
+            CheckCodeUniqueness(faculty);
+
             var facultyToDb = new EntitiesDb.Faculty().MapFromEntity(faculty);
             var facultyFromDb = dataContext.Update(facultyToDb).Entity;
 
@@ -69,6 +76,20 @@ namespace SAMS.Database.EF.Services
 
             dataContext.SaveChanges();
             return facultyFromDb.MapToEntity();
+        }
+
+        private void CheckCodeUniqueness(Faculty faculty)
+        {
+            if (dataContext.Faculties.Any(f => f.Id != faculty.Id && f.Code == faculty.Code))
+                throw new System.Exception("This faculty code already exist is system!");
+
+            faculty.StudyProgrammes.ToList().ForEach(s => CheckCodeUniqueness(s));
+        }
+
+        private void CheckCodeUniqueness(StudyProgramme studyProgramme)
+        {
+            if (dataContext.StudyProgrammes.Any(f => f.Id != studyProgramme.Id && f.Code == studyProgramme.Code))
+                throw new System.Exception("This study programme code already exist is system!");
         }
     }
 }

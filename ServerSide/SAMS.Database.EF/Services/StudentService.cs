@@ -54,6 +54,8 @@ namespace SAMS.Database.EF.Services
 
         public Student Add(Student student)
         {
+            CheckCodeUniqueness(student);
+
             var studentToDb = new EntitiesDb.Student().MapFromEntity(student);
             var studentFromDb = dataContext.Add(studentToDb).Entity;
             dataContext.SaveChanges();
@@ -61,13 +63,20 @@ namespace SAMS.Database.EF.Services
         }
 
 
-        public Student Update(Student studnet)
+        public Student Update(Student student)
         {
-            var studnetToDb = new EntitiesDb.Student().MapFromEntity(studnet);
+            CheckCodeUniqueness(student);
+
+            var studnetToDb = new EntitiesDb.Student().MapFromEntity(student);
             var studentFromDb = dataContext.Update(studnetToDb).Entity;
 
             dataContext.SaveChanges();
             return studentFromDb.MapToEntity();
+        }
+        private void CheckCodeUniqueness(Student student)
+        {
+            if (dataContext.Students.Any(f => f.Id != student.Id && f.Code == student.Code))
+                throw new System.Exception("This student code already exist is system!");
         }
     }
 }

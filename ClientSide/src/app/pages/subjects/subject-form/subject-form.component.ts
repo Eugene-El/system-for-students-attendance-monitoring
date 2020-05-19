@@ -3,6 +3,7 @@ import { SubjectModel } from '../models/subjectModel';
 import { LoadingService } from 'src/app/services/loading-service/loading.service';
 import { SubjectsService } from '../services/subjects.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationService } from 'src/app/services/notification-service/notification.service';
 
 @Component({
   selector: 'app-subject-form',
@@ -15,6 +16,7 @@ export class SubjectFormComponent implements OnInit {
     private loadingService: LoadingService,
     private subjectsService: SubjectsService,
     private activatedRoute: ActivatedRoute,
+    private notificationService: NotificationService,
     private router: Router
   ) { }
 
@@ -43,19 +45,27 @@ export class SubjectFormComponent implements OnInit {
             this.loadingService.endLoading();
           })
           .catch((error) => {
-
+            this.notificationService.processError(error);
             this.loadingService.endLoading();
           });
       }
     },
     save: () => {
+      if (this.page.subject.code == "" || this.page.subject.titleEn == "" || this.page.subject.titleLv == "" ||
+        this.page.subject.titleRu == "" || this.page.subject.shortTitleEn == "" || this.page.subject.shortTitleLv == "" ||
+        this.page.subject.shortTitleRu == "") {
+          this.notificationService.fillAllFields();
+          return;
+        }
+
       this.loadingService.addLoading();
       this.subjectsService.save(this.page.subject)
         .then(() => {
           this.loadingService.endLoading();
+          this.notificationService.successfullySaved();
           this.methods.back();
         }, (error) => {
-          console.log(error);
+          this.notificationService.processError(error);
           this.loadingService.endLoading();
         })
     },

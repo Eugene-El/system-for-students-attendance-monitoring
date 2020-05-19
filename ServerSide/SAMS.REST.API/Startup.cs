@@ -23,7 +23,9 @@ namespace SAMS.REST.API
         {
             services.AddCors();
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
 
             services.AddDbContextPool<DataContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("StudentAttendanceDB")));

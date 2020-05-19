@@ -22,7 +22,7 @@
 </div>
 <div mat-dialog-actions>
     
-    <button mat-raised-button color="primary" mat-button [mat-dialog-close]="data" cdkFocusInitial>
+    <button mat-raised-button color="primary" mat-button (click)="submit()" cdkFocusInitial>
         <mat-icon>save</mat-icon>
         <span> {{ 'COMMON.SAVE' | translate }} </span>
     </button>

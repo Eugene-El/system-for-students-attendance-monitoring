@@ -39,6 +39,8 @@ namespace SAMS.Database.EF.Services
 
         public Subject Add(Subject subject)
         {
+            CheckCodeUniqueness(subject);
+
             var subjectToDb = new EntitiesDb.Subject().MapFromEntity(subject);
             var subjectFromDb = dataContext.Add(subjectToDb).Entity;
             dataContext.SaveChanges();
@@ -48,11 +50,20 @@ namespace SAMS.Database.EF.Services
 
         public Subject Update(Subject subject)
         {
+            CheckCodeUniqueness(subject);
+
             var subjectToDb = new EntitiesDb.Subject().MapFromEntity(subject);
             var subjectFromDb = dataContext.Update(subjectToDb).Entity;
 
             dataContext.SaveChanges();
             return subjectFromDb.MapToEntity();
+        }
+
+
+        private void CheckCodeUniqueness(Subject subject)
+        {
+            if (dataContext.Subjects.Any(f => f.Id != subject.Id && f.Code == subject.Code))
+                throw new System.Exception("This subject code already exist is system!");
         }
     }
 }

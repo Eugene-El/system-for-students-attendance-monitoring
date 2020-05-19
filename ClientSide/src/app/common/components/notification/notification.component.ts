@@ -15,7 +15,6 @@ export class NotificationComponent implements OnInit {
 
   ngOnInit() {
     this.notificationService.onNotification.subscribe((notification: NotificationModel) => {
-      this.page.visible = true;
       this.page.message = notification.message;
       
       this.page.isSuccess = notification.type == "success";
@@ -27,7 +26,11 @@ export class NotificationComponent implements OnInit {
       this.page.currentStep = 0;
       this.page.durration = notification.durationMs;
       
-      this.methods.progress();
+      if (!this.page.visible)
+      {
+        this.page.visible = true;
+        this.methods.progress();
+      }
     })
   }
 

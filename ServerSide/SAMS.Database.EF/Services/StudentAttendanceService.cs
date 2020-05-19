@@ -37,6 +37,8 @@ namespace SAMS.Database.EF.Services
 
         public StudentAttendance Add(StudentAttendance studentAttendance)
         {
+            CheckDateAndSubjectUniqueness(studentAttendance);
+
             var studentAttendanceToDb = new EntitiesDb.StudentAttendance().MapFromEntity(studentAttendance);
             var studentAttendanceFromDb = dataContext.Add(studentAttendanceToDb).Entity;
             dataContext.SaveChanges();
@@ -46,11 +48,20 @@ namespace SAMS.Database.EF.Services
 
         public StudentAttendance Update(StudentAttendance studentAttendance)
         {
+            CheckDateAndSubjectUniqueness(studentAttendance);
+
             var studentToDb = new EntitiesDb.StudentAttendance().MapFromEntity(studentAttendance);
             var studentFromDb = dataContext.Update(studentToDb).Entity;
 
             dataContext.SaveChanges();
             return studentFromDb.MapToEntity();
+        }
+
+        private void CheckDateAndSubjectUniqueness(StudentAttendance studentAttendance)
+        {
+            if (dataContext.StudentAttendances.Any(s => s.Id != studentAttendance.Id &&
+                s.Date == studentAttendance.Date && s.SubjectId == studentAttendance.SubjectId))
+                throw new System.Exception("Student attendance for this subject and day already exist!");
         }
     }
 }

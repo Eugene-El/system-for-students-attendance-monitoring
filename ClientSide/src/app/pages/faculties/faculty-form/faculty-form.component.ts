@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { StudyProgrammePopupComponent } from './study-programme-popup/study-programme-popup.component';
+import { NotificationService } from 'src/app/services/notification-service/notification.service';
 
 @Component({
   selector: 'app-faculty-form',
@@ -23,7 +24,8 @@ export class FacultyFormComponent implements OnInit {
     private facultiesService: FacultiesService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private notificationService: NotificationService
   ) {
 
   }
@@ -59,7 +61,7 @@ export class FacultyFormComponent implements OnInit {
             this.loadingService.endLoading();
           })
           .catch((error) => {
-
+            this.notificationService.processError(error);
             this.loadingService.endLoading();
           });
       }
@@ -74,7 +76,7 @@ export class FacultyFormComponent implements OnInit {
       faculties.forEach(f => {
         minIndex = minIndex < f.id ? minIndex : f.id;
       });
-      this.methods.openPopup(new StudyProgrammeModel(minIndex - 1, "", "", "", ""));
+      this.methods.openPopup(new StudyProgrammeModel(minIndex - 1, "", "", "", "", 0));
     },
     applyStudyProgrammeFilter: (e) => {
       let filterValue = (e.target as HTMLInputElement).value;
@@ -89,7 +91,8 @@ export class FacultyFormComponent implements OnInit {
         studyProgramme.code,
         studyProgramme.titleEn,
         studyProgramme.titleLv,
-        studyProgramme.titleRu
+        studyProgramme.titleRu,
+        studyProgramme.studentsCount
       ));
     },
     deleteStudyProgramme: (id: number) => {
@@ -122,15 +125,23 @@ export class FacultyFormComponent implements OnInit {
       });
     },
     save: () => {
+      if (this.page.faculty.code == "" || this.page.faculty.titleEn == "" || this.page.faculty.titleLv == "" ||
+        this.page.faculty.titleRu == "" || this.page.faculty.shortTitleEn == "" || this.page.faculty.shortTitleLv == "" ||
+        this.page.faculty.shortTitleRu == "") {
+        this.notificationService.fillAllFields();
+        return;
+      }
+
       this.page.faculty.studyProgrammes = this.dataSources.studyProgrammes.connect().getValue();
       this.page.faculty.studyProgrammes.forEach(s => { s.id = s.id <= 0 ? 0 : s.id; });
       this.loadingService.addLoading();
       this.facultiesService.save(this.page.faculty)
         .then(() => {
           this.loadingService.endLoading();
+          this.notificationService.successfullySaved();
           this.methods.back();
         }, (error) => {
-          console.log(error);
+          this.notificationService.processError(error);
           this.loadingService.endLoading();
         })
     },

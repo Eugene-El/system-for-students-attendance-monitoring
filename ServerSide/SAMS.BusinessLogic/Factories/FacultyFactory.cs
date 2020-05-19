@@ -66,7 +66,8 @@ namespace SAMS.BusinessLogic.Factories
                             Code = s.Code,
                             TitleEn = s.TitleEn,
                             TitleLv = s.TitleLv,
-                            TitleRu = s.TitleRu
+                            TitleRu = s.TitleRu,
+                            StudentsCount = s.StudentCount
                         }).ToList()
                 };
         }

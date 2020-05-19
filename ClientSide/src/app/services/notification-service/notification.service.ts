@@ -10,7 +10,7 @@ export class NotificationService {
 
   @Output() onNotification = new EventEmitter<NotificationModel>();
 
-  private displayTime = 3000;
+  private displayTime = 4000;
   private errorDisplayTime = 6000;
 
   constructor(private translateService: TranslateService) { }
@@ -27,10 +27,21 @@ export class NotificationService {
     this.onNotification.emit(new NotificationModel(this.translateService.instant(message), "error", this.errorDisplayTime));
   }
 
+  public fillAllFields() {
+    this.onNotification.emit(new NotificationModel(this.translateService.instant("COMMON.PLEASE_FILL_ALL_FIELDS"), "info", this.displayTime));
+  }
+
+  public successfullySaved() {
+    this.onNotification.emit(new NotificationModel(this.translateService.instant("COMMON.SUCESSFULLY_SAVED"), "success", this.displayTime));
+  }
+
   public processError(error: HttpErrorResponse) {
+    console.log(error);
     let errorString = "";
     if (typeof(error.error) == "string")
       errorString = error.error;
+    else if (typeof(error.error) == "object" && error.error.Message != null && typeof(error.error.Message) == "string")
+      errorString = error.error.Message;
     else
       errorString = error.message;
     this.error(errorString);

@@ -6,6 +6,7 @@ import { LoadingService } from 'src/app/services/loading-service/loading.service
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
+import { NotificationService } from 'src/app/services/notification-service/notification.service';
 
 @Component({
   selector: 'app-subjects-list',
@@ -20,6 +21,7 @@ export class SubjectsListComponent implements OnInit {
     private subjectsService: SubjectsService,
     private loadingService: LoadingService,
     private translateService: TranslateService,
+    private notificationService: NotificationService,
     private router: Router
     ) { }
 
@@ -41,6 +43,7 @@ export class SubjectsListComponent implements OnInit {
         this.dataSources.subjects.paginator = this.paginator;
         this.loadingService.endLoading();
       }).catch((error) => {
+        this.notificationService.processError(error);
         this.loadingService.endLoading();
       });
     },

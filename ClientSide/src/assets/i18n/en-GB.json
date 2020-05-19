@@ -8,7 +8,8 @@
         "DELETE": "Delete",
         "BACK": "Back",
         "CLOSE": "Close",
-        "SUCESSFULLY_SAVED": "Successfully saved"
+        "SUCESSFULLY_SAVED": "Successfully saved",
+        "PLEASE_FILL_ALL_FIELDS": "Please, fill all required fields!"
     },
     "HOME": {
         "HELLO_MESSAGE": "Welcome to System for student's attendance monitoring"

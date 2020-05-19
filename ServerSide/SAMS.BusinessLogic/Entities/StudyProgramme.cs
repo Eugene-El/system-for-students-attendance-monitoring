@@ -12,5 +12,7 @@ namespace SAMS.BusinessLogic.Entities
         public string TitleLv { get; set; }
         public string TitleRu { get; set; }
         public string TitleEn { get; set; }
+
+        public int StudentCount { get; set; }
     }
 }

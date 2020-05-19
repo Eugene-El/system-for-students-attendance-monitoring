@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { FacultyGridModel } from '../models/facultyGridModel';
 import { MatPaginator } from '@angular/material/paginator';
 import { TranslateService } from '@ngx-translate/core';
+import { NotificationService } from 'src/app/services/notification-service/notification.service';
 
 @Component({
   selector: 'app-faculties-list',
@@ -20,6 +21,7 @@ export class FacultiesListComponent implements OnInit {
     private facultiesService: FacultiesService,
     private loadingService: LoadingService,
     private translateService: TranslateService,
+    private notificationService: NotificationService,
     private router: Router
   ) { }
 
@@ -46,6 +48,7 @@ export class FacultiesListComponent implements OnInit {
         this.dataSources.faculties.paginator = this.paginator;
         this.loadingService.endLoading();
       }).catch((error) => {
+        this.notificationService.processError(error);
         this.loadingService.endLoading();
       });
     },

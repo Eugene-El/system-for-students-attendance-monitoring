@@ -79,11 +79,19 @@ export class StudentFormComponent implements OnInit {
         this.dataSources.studyProgrammes = faculty.options;
     },
     save: () => {
+      if (this.page.student.code == "" || this.page.student.name == "" || this.page.student.surname == "" ||
+        this.page.student.studyProgrammeId == null || this.page.student.language == null ||
+        this.page.student.learningForm == null || this.page.student.status == null ||
+        this.page.student.phone1 == "" || this.page.student.email1 == "") {
+        this.notificationService.fillAllFields();
+        return;
+      }
+
       this.loadingService.addLoading();
       this.studentsService.save(this.page.student)
         .then(() => {
           this.loadingService.endLoading();
-          this.notificationService.success("STUDENT.SUCESSFULLY_SAVED");
+          this.notificationService.successfullySaved();
           this.methods.back();
         })
         .catch((error) => {

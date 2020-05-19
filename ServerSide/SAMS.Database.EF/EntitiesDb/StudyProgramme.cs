@@ -24,7 +24,8 @@ namespace SAMS.Database.EF.EntitiesDb
                 Code = this.Code,
                 TitleLv = this.TitleLv,
                 TitleRu = this.TitleRu,
-                TitleEn = this.TitleEn
+                TitleEn = this.TitleEn,
+                StudentCount = Students != null ? Students.Count : 0
             };
         }
 
