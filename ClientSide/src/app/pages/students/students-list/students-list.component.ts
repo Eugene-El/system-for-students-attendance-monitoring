@@ -7,6 +7,7 @@ import { StudentGridModel } from '../models/studentGridModel';
 import { MatPaginator } from '@angular/material/paginator';
 import { StudentsService } from '../services/students.service';
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
+import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-students-list',
@@ -32,7 +33,8 @@ export class StudentsListComponent implements OnInit {
   }
 
   dataSources = {
-    students: new MatTableDataSource<StudentGridModel>(),
+    students: new Array<StudentGridModel>(),
+    sortedStudents: new MatTableDataSource<StudentGridModel>(),
     learningForms: this.studentsService.getLearningFormsDictionary() ,
     studentLanguages: this.studentsService.getStudentLanguagesDictionary()
   }
@@ -41,8 +43,9 @@ export class StudentsListComponent implements OnInit {
     getStudents: () => {
       this.loadingService.addLoading();
       this.studentsService.getAllForGrid().then((students) => {
-        this.dataSources.students = new MatTableDataSource(students);
-        this.dataSources.students.paginator = this.paginator;
+        this.dataSources.students = students;
+        this.dataSources.sortedStudents = new MatTableDataSource(students);
+        this.dataSources.sortedStudents.paginator = this.paginator;
         this.loadingService.endLoading();
       }).catch((error) => {
         this.notificationService.processError(error);
@@ -51,10 +54,42 @@ export class StudentsListComponent implements OnInit {
     },
     applyFilter: (e) => {
       let filterValue = (e.target as HTMLInputElement).value;
-      this.dataSources.students.filter = filterValue.trim().toLowerCase();
+      this.dataSources.sortedStudents.filter = filterValue.trim().toLowerCase();
 
-      if (this.dataSources.students.paginator)
-        this.dataSources.students.paginator.firstPage();
+      if (this.dataSources.sortedStudents.paginator)
+        this.dataSources.sortedStudents.paginator.firstPage();
+    },
+    sortData: (sort: Sort) => {
+
+      let data = this.dataSources.students.slice(); // create new array insatnce
+      if (sort.direction === '') {
+        let filter = this.dataSources.sortedStudents.filter;
+        this.dataSources.sortedStudents = new MatTableDataSource(data);
+        this.dataSources.sortedStudents.paginator = this.paginator;
+        this.dataSources.sortedStudents.filter = filter;
+        return;
+      }
+  
+      let sortedData = data.sort((a, b) => {
+        let isAsc = sort.direction === 'asc';
+        switch (sort.active) {
+          case 'code': return this.methods.compare(a.code, b.code, isAsc);
+          case 'fullName': return this.methods.compare(a.fullName, b.fullName, isAsc);
+          case 'facultyTitle': return this.methods.compare(a.facultyTitle, b.facultyTitle, isAsc);
+          case 'studyProgrammeTitle': return this.methods.compare(a.studyProgrammeTitle, b.studyProgrammeTitle, isAsc);
+          case 'learningForm': return this.methods.compare(a.learningForm, b.learningForm, isAsc);
+          case 'studentLanguage': return this.methods.compare(a.studentLanguage, b.studentLanguage, isAsc);
+          default: return 0;
+        }
+      });
+
+      let filter = this.dataSources.sortedStudents.filter;
+      this.dataSources.sortedStudents = new MatTableDataSource(sortedData);
+      this.dataSources.sortedStudents.paginator = this.paginator;
+      this.dataSources.sortedStudents.filter = filter;
+    },
+    compare: (a: number | string, b: number | string, isAsc: boolean) => {
+      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
     },
     addNew: () => {
       this.router.navigate(['students', 0]);

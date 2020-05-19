@@ -40,7 +40,7 @@ export class NotificationService {
     let errorString = "";
     if (typeof(error.error) == "string")
       errorString = error.error;
-    else if (typeof(error.error) == "object" && error.error.Message != null && typeof(error.error.Message) == "string")
+    else if (error.error != null && typeof(error.error) == "object" && error.error.Message != null && typeof(error.error.Message) == "string")
       errorString = error.error.Message;
     else
       errorString = error.message;

@@ -13,6 +13,7 @@ namespace SAMS.Database.EF.EntityFramework
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<StudentAttendance> StudentAttendances { get; set; }
+        public DbSet<Configuration> Configurations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

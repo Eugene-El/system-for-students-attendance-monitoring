@@ -1,0 +1,7 @@
+﻿namespace SAMS.Database.EF.EntitiesDb
+{
+    public enum ConfigurationType
+    {
+        NotificationAndSyncTimePeriods = 1
+    }
+}

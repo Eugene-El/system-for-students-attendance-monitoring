@@ -15,7 +15,7 @@
     <input matInput (keyup)="methods.applyFilter($event)" >
   </mat-form-field>
 
-  <table mat-table [dataSource]="dataSources.subjects" matSort class="w100pct">
+  <table mat-table [dataSource]="dataSources.sortedSubjects" matSort class="w100pct" (matSortChange)="methods.sortData($event)">
 
     <ng-container matColumnDef="code">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="w10pct"> {{ 'SUBJECT.CODE' | translate }} </th>

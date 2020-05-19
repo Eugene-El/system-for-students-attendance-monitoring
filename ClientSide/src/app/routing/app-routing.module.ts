@@ -9,6 +9,7 @@ import { StudentsListComponent } from '../pages/students/students-list/students-
 import { StudentFormComponent } from '../pages/students/student-form/student-form.component';
 import { StudentAttendancesListComponent } from '../pages/studentAttendances/student-attendances-list/student-attendances-list.component';
 import { StudentAttendanceFormComponent } from '../pages/studentAttendances/student-attendance-form/student-attendance-form.component';
+import { ConfigurationComponent } from '../pages/configuration/configuration.component';
 
 const routes: Routes = [
 
@@ -21,6 +22,7 @@ const routes: Routes = [
     { path: 'students/:id', component: StudentFormComponent },
     { path: 'students/attendances/:studentId', component: StudentAttendancesListComponent },
     { path: 'students/attendances/:studentId/:id', component: StudentAttendanceFormComponent },
+    { path: 'configuration', component: ConfigurationComponent },
     { path: '**', redirectTo: '/home' }
 
 ];

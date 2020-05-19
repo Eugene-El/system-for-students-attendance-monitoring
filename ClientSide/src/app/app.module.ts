@@ -35,6 +35,7 @@ import { StudentFormComponent } from './pages/students/student-form/student-form
 import { NotificationComponent } from './common/components/notification/notification.component';
 import { StudentAttendancesListComponent } from './pages/studentAttendances/student-attendances-list/student-attendances-list.component';
 import { StudentAttendanceFormComponent } from './pages/studentAttendances/student-attendance-form/student-attendance-form.component';
+import { ConfigurationComponent } from './pages/configuration/configuration.component';
 
 // Handle no translation case
 export class CustomMissingTranslationHandler implements MissingTranslationHandler {
@@ -69,7 +70,8 @@ export const MY_FORMATS = {
       StudentsListComponent,
       StudentFormComponent,
       StudentAttendancesListComponent,
-      StudentAttendanceFormComponent
+      StudentAttendanceFormComponent,
+      ConfigurationComponent
    ],
    imports: [
       BrowserModule,

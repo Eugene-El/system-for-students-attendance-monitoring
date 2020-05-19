@@ -18,7 +18,8 @@
         "HOME": "Home",
         "FACULTIES": "Faculties",
         "SUBJECTS": "Subjects",
-        "STUDENTS": "Students"
+        "STUDENTS": "Students",
+        "CONFIGURATION": "Configuration"
     },
     "FACULTY": {
         "FACULTY": "Faculty",
@@ -82,5 +83,10 @@
         "NECESSARY_ATTENDANCE": "Necessary attendance",
         "PROCENT": "Procent",
         "NEW_STUDENT_ATTENDANCE": "New student attendance record"
+    },
+    "CONFIGURATION": {
+        "NOTIFICATION_AND_DATA_SYNC": "Notification and data-sync time periods configuration",
+        "DATA_SYNC_PERIOD_H": "Data-sync time period (hours)",
+        "NOTIFICATION_PERIOD_H": "Notifications time period (hours)"
     }
 }

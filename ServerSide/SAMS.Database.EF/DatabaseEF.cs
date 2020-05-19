@@ -60,5 +60,17 @@ namespace SAMS.Database.EF
                 return studentAttendanceService;
             }
         }
+
+
+        private ConfigurationService configurationService;
+        public IConfigurationService ConfigurationService
+        {
+            get
+            {
+                if (configurationService == null)
+                    configurationService = new ConfigurationService(dataContext);
+                return configurationService;
+            }
+        }
     }
 }

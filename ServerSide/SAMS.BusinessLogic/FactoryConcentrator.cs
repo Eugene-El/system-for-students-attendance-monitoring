@@ -61,5 +61,16 @@ namespace SAMS.BusinessLogic
             }
         }
 
+
+        private ConfigurationFactory configurationFactory;
+        public ConfigurationFactory ConfigurationFactory
+        {
+            get
+            {
+                if (configurationFactory == null)
+                    configurationFactory = new ConfigurationFactory(Database);
+                return configurationFactory;
+            }
+        }
     }
 }

@@ -1,0 +1,30 @@
+
+<h1>
+  {{ 'HEADERS.CONFIGURATION' | translate }}
+</h1>
+
+<div *ngIf="page.configuration != null">
+  <h3 class="header">
+    {{ 'CONFIGURATION.NOTIFICATION_AND_DATA_SYNC' | translate }}
+  </h3>
+  <div class="m20t data-form">
+    <mat-form-field class="short-field">
+      <mat-label>{{ 'CONFIGURATION.DATA_SYNC_PERIOD_H' | translate }}</mat-label>
+      <input type="number" min="1" required matInput [(ngModel)]="page.configuration.notificationAndSyncConfiguration.dataSyncPeriodHours">
+    </mat-form-field>
+
+    <mat-form-field class="short-field">
+      <mat-label>{{ 'CONFIGURATION.NOTIFICATION_PERIOD_H' | translate }}</mat-label>
+      <input type="number" min="1" required matInput [(ngModel)]="page.configuration.notificationAndSyncConfiguration.notificationsPeriodHours">
+    </mat-form-field>
+  </div>
+
+</div>
+
+
+<button mat-raised-button color="primary"
+  (click)="methods.saveConfiguration()">
+  <mat-icon>save</mat-icon>
+  <span> {{ 'COMMON.SAVE' | translate }} </span>
+</button>
+

@@ -7,6 +7,7 @@ import { FacultyGridModel } from '../models/facultyGridModel';
 import { MatPaginator } from '@angular/material/paginator';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
+import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-faculties-list',
@@ -36,7 +37,8 @@ export class FacultiesListComponent implements OnInit {
   }
 
   dataSources = {
-    faculties: new MatTableDataSource<FacultyGridModel>(),
+    faculties: new Array<FacultyGridModel>(),
+    sortedFaculties: new MatTableDataSource<FacultyGridModel>(),
     displayedColumns: ['code', 'title', 'studyProgrammeCount', 'actions']
   }
 
@@ -44,8 +46,9 @@ export class FacultiesListComponent implements OnInit {
     getFaculties: () => {
       this.loadingService.addLoading();
       this.facultiesService.getAllForGrid().then((faculties) => {
-        this.dataSources.faculties = new MatTableDataSource(faculties);
-        this.dataSources.faculties.paginator = this.paginator;
+        this.dataSources.faculties = faculties;
+        this.dataSources.sortedFaculties = new MatTableDataSource(faculties);
+        this.dataSources.sortedFaculties.paginator = this.paginator;
         this.loadingService.endLoading();
       }).catch((error) => {
         this.notificationService.processError(error);
@@ -54,10 +57,40 @@ export class FacultiesListComponent implements OnInit {
     },
     applyFilter: (e) => {
       let filterValue = (e.target as HTMLInputElement).value;
-      this.dataSources.faculties.filter = filterValue.trim().toLowerCase();
+      this.dataSources.sortedFaculties.filter = filterValue.trim().toLowerCase();
 
-      if (this.dataSources.faculties.paginator)
-        this.dataSources.faculties.paginator.firstPage();
+      if (this.dataSources.sortedFaculties.paginator)
+        this.dataSources.sortedFaculties.paginator.firstPage();
+    },
+    sortData: (sort: Sort) => {
+
+      let data = this.dataSources.faculties.slice(); // create new array insatnce
+      if (sort.direction === '') {
+        let filter = this.dataSources.sortedFaculties.filter;
+        this.dataSources.sortedFaculties = new MatTableDataSource(data);
+        this.dataSources.sortedFaculties.paginator = this.paginator;
+        this.dataSources.sortedFaculties.filter = filter;
+        return;
+      }
+  
+      let sortedData = data.sort((a, b) => {
+        let isAsc = sort.direction === 'asc';
+        switch (sort.active) {
+          case 'code': return this.methods.compare(a.code, b.code, isAsc);
+          case 'title': return this.methods.compare(a.title, b.title, isAsc);
+          case 'studyProgrammeCount': return this.methods.compare(a.studyProgrammeCount, b.studyProgrammeCount, isAsc);
+          default: return 0;
+        }
+      });
+
+      let filter = this.dataSources.sortedFaculties.filter;
+      this.dataSources.sortedFaculties = new MatTableDataSource(sortedData);
+      this.dataSources.sortedFaculties.paginator = this.paginator;
+      this.dataSources.sortedFaculties.filter = filter;
+
+    },
+    compare: (a: number | string, b: number | string, isAsc: boolean) => {
+      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
     },
     addNew: () => {
       this.router.navigate(['faculties', 0]);

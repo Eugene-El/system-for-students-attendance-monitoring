@@ -37,6 +37,7 @@ export class MenuComponent implements OnInit {
       this.dataSources.menuItems.push(new MenuItem("HEADERS.FACULTIES", "/faculties"));
       this.dataSources.menuItems.push(new MenuItem("HEADERS.SUBJECTS", "/subjects"));
       this.dataSources.menuItems.push(new MenuItem("HEADERS.STUDENTS", "/students"));
+      this.dataSources.menuItems.push(new MenuItem("HEADERS.CONFIGURATION", "/configuration"));
     },
     fillLanguages: () => {
       this.dataSources.languageItems = new Array<LanguageItem>();

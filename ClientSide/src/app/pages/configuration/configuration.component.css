@@ -1,0 +1,4 @@
+.header {
+    padding-bottom: 4px;
+    border-bottom: 2px dotted var(--tsi-blue);    
+}

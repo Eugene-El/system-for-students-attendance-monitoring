@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
+import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-subjects-list',
@@ -32,15 +33,17 @@ export class SubjectsListComponent implements OnInit {
   }
 
   dataSources = {
-    subjects: new MatTableDataSource<SubjectGridModel>()
+    subjects: new Array<SubjectGridModel>(),
+    sortedSubjects: new MatTableDataSource<SubjectGridModel>()
   }
 
   methods = {
     getSubjects: () => {
       this.loadingService.addLoading();
       this.subjectsService.getAllForGrid().then((subjects) => {
-        this.dataSources.subjects = new MatTableDataSource(subjects);
-        this.dataSources.subjects.paginator = this.paginator;
+        this.dataSources.subjects = subjects;
+        this.dataSources.sortedSubjects = new MatTableDataSource(subjects);
+        this.dataSources.sortedSubjects.paginator = this.paginator;
         this.loadingService.endLoading();
       }).catch((error) => {
         this.notificationService.processError(error);
@@ -49,10 +52,39 @@ export class SubjectsListComponent implements OnInit {
     },
     applyFilter: (e) => {
       let filterValue = (e.target as HTMLInputElement).value;
-      this.dataSources.subjects.filter = filterValue.trim().toLowerCase();
+      this.dataSources.sortedSubjects.filter = filterValue.trim().toLowerCase();
 
-      if (this.dataSources.subjects.paginator)
-        this.dataSources.subjects.paginator.firstPage();
+      if (this.dataSources.sortedSubjects.paginator)
+        this.dataSources.sortedSubjects.paginator.firstPage();
+    },
+    sortData: (sort: Sort) => {
+
+      let data = this.dataSources.subjects.slice(); // create new array insatnce
+      if (sort.direction === '') {
+        let filter = this.dataSources.sortedSubjects.filter;
+        this.dataSources.sortedSubjects = new MatTableDataSource(data);
+        this.dataSources.sortedSubjects.paginator = this.paginator;
+        this.dataSources.sortedSubjects.filter = filter;
+        return;
+      }
+  
+      let sortedData = data.sort((a, b) => {
+        let isAsc = sort.direction === 'asc';
+        switch (sort.active) {
+          case 'code': return this.methods.compare(a.code, b.code, isAsc);
+          case 'title': return this.methods.compare(a.title, b.title, isAsc);
+          default: return 0;
+        }
+      });
+
+      let filter = this.dataSources.sortedSubjects.filter;
+      this.dataSources.sortedSubjects = new MatTableDataSource(sortedData);
+      this.dataSources.sortedSubjects.paginator = this.paginator;
+      this.dataSources.sortedSubjects.filter = filter;
+
+    },
+    compare: (a: number | string, b: number | string, isAsc: boolean) => {
+      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
     },
     addNew: () => {
       this.router.navigate(['subjects', 0]);
