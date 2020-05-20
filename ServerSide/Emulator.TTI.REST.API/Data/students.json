@@ -1,0 +1,72 @@
+[
+  {
+    "studentID": 58788,
+    "name": "Eduard",
+    "surname": "Vasiljevs",
+    "programme": 32,
+    "faculty": 3,
+    "form": 1,
+    "lng": "russian",
+    "phones": [
+      {
+        "phone": "+37122482359723"
+      },
+      {
+        "phone": "+37122322359923"
+      }
+    ],
+    "emails": [
+      {
+        "email": "eduard1990@gmail.com"
+      },
+    ],
+    "skype": "",
+    "comments": "",
+    "status": "active"
+  },
+  {
+    "studentID": 58753,
+    "name": "Anton",
+    "surname": "Ivanov",
+    "programme": 31,
+    "faculty": 3,
+    "form": 2,
+    "lng": "latvian",
+    "phones": [
+      {
+        "phone": "+37122348784324"
+      }
+    ],
+    "emails": [
+      {
+        "email": "ivanov_anton@gmail.com"
+      }
+    ],
+    "skype": ":live34242425",
+    "comments": "",
+    "status": "active"
+  },
+  
+  {
+    "studentID": 58767,
+    "name": "Kirill",
+    "surname": "Kuznecov",
+    "programme": 21,
+    "faculty": 2,
+    "form": 1,
+    "lng": "english",
+    "phones": [
+      {
+        "phone": "+37126206700"
+      }
+    ],
+    "emails": [
+      {
+        "email": "lomashonok@inbox.lv"
+      }
+    ],
+    "skype": ":live234525",
+    "comments": "",
+    "status": "active"
+  }
+]

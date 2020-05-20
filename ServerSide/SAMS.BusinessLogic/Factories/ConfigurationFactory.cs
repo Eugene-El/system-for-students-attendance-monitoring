@@ -40,5 +40,15 @@ namespace SAMS.BusinessLogic.Factories
                     });
             }
         }
+
+        public DateTime? GetLastDataSyncTime()
+        {
+            return Database.ConfigurationService.GetLastDataSyncTime();
+        }
+
+        public void SetLastDataSyncTime(DateTime dateTime)
+        {
+            Database.ConfigurationService.SetLastDataSyncTime(dateTime);
+        }
     }
 }

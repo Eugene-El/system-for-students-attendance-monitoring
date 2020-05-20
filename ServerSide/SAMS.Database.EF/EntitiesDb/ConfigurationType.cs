@@ -2,6 +2,7 @@
 {
     public enum ConfigurationType
     {
-        NotificationAndSyncTimePeriods = 1
+        NotificationAndSyncTimePeriods = 1,
+        LastDataSyncTime = 2
     }
 }

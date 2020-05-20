@@ -1,0 +1,47 @@
+﻿[
+  {
+    "subjectID": 115,
+    "title_LV": "Angļu valoda",
+    "title_RU": "Английский язык",
+    "title_EN": "English language",
+    "short_title_LV": "Angļ",
+    "short_title_RU": "Англ",
+    "short_title_EN": "Engl"
+  },
+  {
+    "subjectID": 112,
+    "title_LV": "Latviešu valoda",
+    "title_RU": "Латышский язык",
+    "title_EN": "Latvian language",
+    "short_title_LV": "Lat",
+    "short_title_RU": "Лв",
+    "short_title_EN": "Lv"
+  },
+  {
+    "subjectID": 116,
+    "title_LV": "Programmēšana .NET",
+    "title_RU": "Программирование на .NET",
+    "title_EN": "Programming on .NET",
+    "short_title_LV": ".NET",
+    "short_title_RU": ".NET",
+    "short_title_EN": ".NET"
+  },
+  {
+    "subjectID": 118,
+    "title_LV": "Programmēšana Java",
+    "title_RU": "Программирование на Java",
+    "title_EN": "Programming on Java",
+    "short_title_LV": "Java",
+    "short_title_RU": "Java",
+    "short_title_EN": "Java"
+  },
+  {
+    "subjectID": 120,
+    "title_LV": "Ievads lietotāja pieredzes dizainā",
+    "title_RU": "Введение в проектирования пользовательского опыта",
+    "title_EN": "User experience design introduction",
+    "short_title_LV": "UI/UX",
+    "short_title_RU": "UI/UX",
+    "short_title_EN": "UI/UX"
+  }
+]

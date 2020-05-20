@@ -1,0 +1,54 @@
+﻿[
+  {
+    "facultyCode": 2,
+    "title_LV": "Transporta un loģistikas fakultāte",
+    "title_RU": "Факультет транспорта и логистики",
+    "title_EN": "Faculty of transport and logistics",
+    "short_title_LV": "Loģistika",
+    "short_title_RU": "Логистика",
+    "short_title_EN": "Logistics",
+    "studyprogrammes": [
+      {
+        "programmeID": 21,
+        "title_LV": "Inženierzinātņu bakalaurs 'Komerciālo transportlīdzekļu ekspluatācija'",
+        "title_RU": "Бакалавр инженерных наук 'Kоммерческая эксплуатация транспорта'",
+        "title_EN": "Bachelor of engineering 'Commercial vehicle operation'"
+      },
+      {
+        "programmeID": 22,
+        "title_LV": "Augstākā profesionālā izglītība 'Transporta un biznesa loģistika'",
+        "title_RU": "Высшее профессиональное образование 'Логистика на транспорте и в бизнесе'",
+        "title_EN": "Higher professional education 'Transport and business logistics'"
+      },
+      {
+        "programmeID": 23,
+        "title_LV": "Augstākā profesionālā izglītība 'Transporta biznesa vadība'",
+        "title_RU": "Высшее профессиональное образование 'Управление предпринимательством на транспорте'",
+        "title_EN": "Higher professional education 'Transport business management'"
+      }
+    ]
+  },
+  {
+    "facultyCode": 3,
+    "title_LV": "Vadības un ekonomikas fakultāte",
+    "title_RU": "Факультет менеджмента и экономики",
+    "title_EN": "Faculty of management and economics",
+    "short_title_LV": "Ekonomika",
+    "short_title_RU": "Экономика",
+    "short_title_EN": "Economics",
+    "studyprogrammes": [
+      {
+        "programmeID": 31,
+        "title_LV": "Sociālo zinātņu bakalaurs ekonomikā",
+        "title_RU": "Бакалавр социальных наук в экономике",
+        "title_EN": "Bachelor of social sciences in economics"
+      },
+      {
+        "programmeID": 32,
+        "title_LV": "Sociālo zinātņu maģistrs ekonomikā",
+        "title_RU": "Магистр социальных наук в экономике",
+        "title_EN": "Master of social sciences in economics"
+      }
+    ]
+  }
+]

@@ -9,5 +9,8 @@ namespace SAMS.BusinessLogic.DatabaseInterfaces.Services
     {
         public NotificationAndSyncConfiguration GetNotificationAndSyncConfiguration();
         public void SetNotificationAndSyncConfiguration(NotificationAndSyncConfiguration configuration);
+
+        public DateTime? GetLastDataSyncTime();
+        public void SetLastDataSyncTime(DateTime dateTime);
     }
 }

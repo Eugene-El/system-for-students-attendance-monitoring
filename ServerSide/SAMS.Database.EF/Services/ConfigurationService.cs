@@ -37,8 +37,6 @@ namespace SAMS.Database.EF.Services
 
         public void SetNotificationAndSyncConfiguration(NotificationAndSyncConfiguration configuration)
         {
-            var configurationString = JsonConvert.SerializeObject(configuration);
-
             var configurationObject = dataContext.Configurations.FirstOrDefault(c =>
                 c.Type == EntitiesDb.ConfigurationType.NotificationAndSyncTimePeriods);
             if (configurationObject == null)
@@ -48,7 +46,7 @@ namespace SAMS.Database.EF.Services
                     Type = EntitiesDb.ConfigurationType.NotificationAndSyncTimePeriods
                 };
 
-            configurationObject.Content = configurationString;
+            configurationObject.Content = JsonConvert.SerializeObject(configuration);
 
             if (configurationObject.Id == 0)
                 dataContext.Configurations.Add(configurationObject);
@@ -57,5 +55,39 @@ namespace SAMS.Database.EF.Services
 
             dataContext.SaveChanges();
         }
+
+        public DateTime? GetLastDataSyncTime()
+        {
+            var configurationString = dataContext.Configurations.FirstOrDefault(c =>
+                c.Type == EntitiesDb.ConfigurationType.LastDataSyncTime)?.Content;
+
+            if (string.IsNullOrEmpty(configurationString))
+                return null;
+
+            return JsonConvert.DeserializeObject<DateTime>(configurationString);
+        }
+
+        public void SetLastDataSyncTime(DateTime dateTime)
+        {
+            var configurationObject = dataContext.Configurations.FirstOrDefault(c =>
+                c.Type == EntitiesDb.ConfigurationType.LastDataSyncTime);
+
+            if (configurationObject == null)
+                configurationObject = new EntitiesDb.Configuration
+                {
+                    Id = 0,
+                    Type = EntitiesDb.ConfigurationType.LastDataSyncTime
+                };
+
+            configurationObject.Content = JsonConvert.SerializeObject(dateTime);
+
+            if (configurationObject.Id == 0)
+                dataContext.Configurations.Add(configurationObject);
+            else
+                dataContext.Configurations.Update(configurationObject);
+
+            dataContext.SaveChanges();
+        }
+
     }
 }

@@ -7,7 +7,7 @@ namespace SAMS.BusinessLogic.DatabaseInterfaces.Services
     {
         IQueryable<Subject> GetAll();
         Subject Get(int id);
-        Subject Add(Subject faculty);
-        Subject Update(Subject faculty);
+        Subject Add(Subject subject);
+        Subject Update(Subject subject);
     }
 }
