@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SAMS.BusinessLogic.Models.StudentAttendances;
 using SAMS.Database.EF.EntityFramework;
+using SAMS.REST.API.Authorization;
 using SAMS.REST.API.DataModels;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace SAMS.REST.API.Controllers
         {
             try
             {
+                CheckAuthorization(Role.Worker, Role.Lecturer);
                 return Ok(new StudentAttendanceDataModel {
                     Student = FactoryConcentrator.StudentFacotry.GetShortModel(CurrentLanguage, id),
                     StudentAttandances = FactoryConcentrator.StudentAttendanceFactory.GetAllForGrid(CurrentLanguage, id).AsEnumerable()
@@ -35,6 +37,7 @@ namespace SAMS.REST.API.Controllers
         {
             try
             {
+                CheckAuthorization(Role.Worker, Role.Lecturer);
                 return Ok(new StudentAttendanceEditDataModel
                 {
                     StudentAttendance = FactoryConcentrator.StudentAttendanceFactory.Get(id),
@@ -52,6 +55,7 @@ namespace SAMS.REST.API.Controllers
         {
             try
             {
+                CheckAuthorization(Role.Worker, Role.Lecturer);
                 if (studentAttendanceModel != null)
                 {
                     if (studentAttendanceModel.Id == 0)

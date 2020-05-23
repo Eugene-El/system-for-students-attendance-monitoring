@@ -33,6 +33,7 @@ namespace SAMS.REST.API.Controllers
         {
             try
             {
+                CheckAuthorization(Role.Worker);
                 FactoryConcentrator.ConfigurationFactory.Save(configurationModel);
                 return Ok();
             }

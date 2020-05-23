@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SAMS.BusinessLogic.Models.Subjects;
 using SAMS.Database.EF.EntityFramework;
+using SAMS.REST.API.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace SAMS.REST.API.Controllers
         {
             try
             {
+                CheckAuthorization(Role.Worker);
                 return Ok(FactoryConcentrator.SubjectFactory.GetAllForGrid(CurrentLanguage).AsEnumerable());
             }
             catch (Exception exception)
@@ -30,6 +32,7 @@ namespace SAMS.REST.API.Controllers
         {
             try
             {
+                CheckAuthorization(Role.Worker);
                 return Ok(FactoryConcentrator.SubjectFactory.Get(id));
             }
             catch (Exception exception)
@@ -43,6 +46,7 @@ namespace SAMS.REST.API.Controllers
         {
             try
             {
+                CheckAuthorization(Role.Worker);
                 if (subjectModel != null)
                 {
                     if (subjectModel.Id == 0)
