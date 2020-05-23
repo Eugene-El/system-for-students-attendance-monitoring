@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
 import { NotificationModel } from '../../models/notificationModel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notification',
@@ -10,7 +11,8 @@ import { NotificationModel } from '../../models/notificationModel';
 export class NotificationComponent implements OnInit {
 
   constructor(
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    public router: Router
   ) { }
 
   ngOnInit() {

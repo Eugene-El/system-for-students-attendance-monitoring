@@ -1,0 +1,25 @@
+<div class="login-block">
+  
+  <div class="data-form">
+    <mat-form-field>
+      <mat-label>{{ 'AUTHORIZATION.LOGIN' | translate }}</mat-label>
+      <input required matInput [(ngModel)]="page.authorizationModel.login">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{ 'AUTHORIZATION.PASSWORD' | translate }}</mat-label>
+      <input required matInput [(ngModel)]="page.authorizationModel.password" [type]="page.hidePassword ? 'password' : 'text'" (keydown.enter)="methods.login()">
+      <button mat-icon-button matSuffix (click)="page.hidePassword = !page.hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="page.hidePassword">
+        <mat-icon>{{page.hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  
+  <button mat-raised-button color="primary" style="margin-top: 20px;"
+    (click)="methods.login()">
+    <mat-icon>account_box</mat-icon>
+    <span> {{ 'AUTHORIZATION.LOG_IN' | translate }} </span>
+  </button>
+
+</div>

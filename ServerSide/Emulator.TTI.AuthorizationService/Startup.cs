@@ -1,14 +1,17 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using SAMS.Database.EF.EntityFramework;
-using System;
-using SAMS.REST.API.Authorization;
+using Microsoft.Extensions.Logging;
 
-namespace SAMS.REST.API
+namespace Emulator.TTI.AuthorizationService
 {
     public class Startup
     {
@@ -22,16 +25,7 @@ namespace SAMS.REST.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
-
-            services.Configure<AuthorizationServicePaths>(Configuration.GetSection("AuthorizationServicePaths"));
-
-            services.AddControllers().AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-            );
-
-            services.AddDbContextPool<DataContext>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("StudentAttendanceDB")));
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,23 +36,9 @@ namespace SAMS.REST.API
                 app.UseDeveloperExceptionPage();
             }
 
-            using (var scope = app.ApplicationServices.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                var context = services.GetRequiredService<DataContext>();
-
-                if (context.Database.IsSqlServer())
-                    context.Database.Migrate();
-            }
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseCors(builder => builder
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader());
 
             app.UseAuthorization();
 
@@ -66,7 +46,6 @@ namespace SAMS.REST.API
             {
                 endpoints.MapControllers();
             });
-            
         }
     }
 }

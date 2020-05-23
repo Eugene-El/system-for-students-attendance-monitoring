@@ -1,0 +1,17 @@
+[
+  {
+    "login": "Administrator",
+    "password": "admin123",
+    "role": 1
+  },
+  {
+    "login": "Savrasov",
+    "password": "bestDecan",
+    "role": 2
+  },
+  {
+    "login": "St58767",
+    "password": "qwerty",
+    "role": 3
+  }
+]

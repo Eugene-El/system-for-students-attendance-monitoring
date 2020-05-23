@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from './models/menuItem';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageItem } from './models/languageItem';
+import { AuthorizationService } from '../services/authorization-service/authorization.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +12,8 @@ import { LanguageItem } from './models/languageItem';
 export class MenuComponent implements OnInit {
 
   constructor(
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private authorizationService: AuthorizationService
   ) { }
 
   ngOnInit() {
@@ -34,10 +36,14 @@ export class MenuComponent implements OnInit {
       this.dataSources.menuItems = new Array<MenuItem>();
 
       this.dataSources.menuItems.push(new MenuItem("HEADERS.HOME", "/home"));
-      this.dataSources.menuItems.push(new MenuItem("HEADERS.FACULTIES", "/faculties"));
-      this.dataSources.menuItems.push(new MenuItem("HEADERS.SUBJECTS", "/subjects"));
-      this.dataSources.menuItems.push(new MenuItem("HEADERS.STUDENTS", "/students"));
-      this.dataSources.menuItems.push(new MenuItem("HEADERS.CONFIGURATION", "/configuration"));
+      if (this.authorizationService.isWorker())
+        this.dataSources.menuItems.push(new MenuItem("HEADERS.FACULTIES", "/faculties"));
+      if (this.authorizationService.isWorker())
+        this.dataSources.menuItems.push(new MenuItem("HEADERS.SUBJECTS", "/subjects"));
+      if (this.authorizationService.isWorkerOrLecturer())
+        this.dataSources.menuItems.push(new MenuItem("HEADERS.STUDENTS", "/students"));
+      if (this.authorizationService.isWorker())
+        this.dataSources.menuItems.push(new MenuItem("HEADERS.CONFIGURATION", "/configuration"));
     },
     fillLanguages: () => {
       this.dataSources.languageItems = new Array<LanguageItem>();
@@ -54,6 +60,9 @@ export class MenuComponent implements OnInit {
         localStorage.setItem("Language", lang);
         this.methods.getCurrentLanguage();
       });
+    },
+    logout: () => {
+      this.authorizationService.logout();
     }
   }
 }

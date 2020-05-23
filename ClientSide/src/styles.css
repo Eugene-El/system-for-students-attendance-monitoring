@@ -4,7 +4,7 @@
 
     --tsi-blue-dark: #113c61;
     --tsi-white: #e0e0e0;
-
+    --tsi-white-transparent: rgba(255, 255, 255, 0.85);
     --tsi-success: #39882e;
     --tsi-info: #30597c;
     --tsi-error: #c04141;
@@ -26,7 +26,7 @@ body {
 /* Change material white to a bit transparent */
 .mat-table,
 .mat-paginator {
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--tsi-white-transparent);
 }
 .mat-table thead, .mat-table tbody, .mat-table tfoot, mat-header-row, mat-row, mat-footer-row, [mat-header-row], [mat-row], [mat-footer-row], .mat-table-sticky {
     background: unset;

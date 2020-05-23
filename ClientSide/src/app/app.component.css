@@ -10,6 +10,9 @@
     height: 100%;
     width: 25%;
 }
+.content-container.login {
+    grid-template-columns: 0% 100%;
+}
 
 @media screen and (max-width: 600px) {
     .content-container {

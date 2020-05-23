@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SAMS.BusinessLogic.Models.Configurations;
 using SAMS.Database.EF.EntityFramework;
+using SAMS.REST.API.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace SAMS.REST.API.Controllers
         {
             try
             {
+                CheckAuthorization(Role.Worker);
                 return Ok(FactoryConcentrator.ConfigurationFactory.Get());
             }
             catch (Exception exception)

@@ -1,8 +1,8 @@
-<div class="content-container">
+<div class="content-container" [ngClass]="{'login': router.url == '/login'}" >
   <div>
-    <div class="menu-container">
+    <div class="menu-container" *ngIf="router.url != '/login'">
       <app-menu></app-menu></div>
-  </div>
+    </div>
   <div style="margin: 15px;">
     <div [hidden]="page.showLoading">
       <router-outlet></router-outlet>

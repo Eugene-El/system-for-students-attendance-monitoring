@@ -10,9 +10,11 @@ import { StudentFormComponent } from '../pages/students/student-form/student-for
 import { StudentAttendancesListComponent } from '../pages/studentAttendances/student-attendances-list/student-attendances-list.component';
 import { StudentAttendanceFormComponent } from '../pages/studentAttendances/student-attendance-form/student-attendance-form.component';
 import { ConfigurationComponent } from '../pages/configuration/configuration.component';
+import { AuthorizationComponent } from '../pages/authorization/authorization.component';
 
 const routes: Routes = [
 
+    { path: 'login', component: AuthorizationComponent },
     { path: 'home', component: HomeComponent },
     { path: 'faculties', component: FacultiesListComponent },
     { path: 'faculties/:id', component: FacultyFormComponent },
@@ -23,7 +25,7 @@ const routes: Routes = [
     { path: 'students/attendances/:studentId', component: StudentAttendancesListComponent },
     { path: 'students/attendances/:studentId/:id', component: StudentAttendanceFormComponent },
     { path: 'configuration', component: ConfigurationComponent },
-    { path: '**', redirectTo: '/home' }
+    { path: '**', redirectTo: '/login' }
 
 ];
   

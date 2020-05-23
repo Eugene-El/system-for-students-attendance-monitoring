@@ -3,7 +3,8 @@
   (mouseleave)="methods.mouseLeave()"
   [ngClass]="{ 'show': page.visible,
     'app-notification-success': page.isSuccess,
-    'app-notification-error': page.isError }">
+    'app-notification-error': page.isError,
+    'login-notification': router.url == '/login' }">
   <div class="app-notification-content">
     {{ page.message }}
   </div>

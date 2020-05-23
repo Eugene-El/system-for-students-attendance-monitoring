@@ -37,6 +37,10 @@
     }
 }
 
+#app-notification.login-notification {
+    left: 15px !important;
+}
+
 #app-notification.show {
     visibility: visible;
     bottom: 15px;

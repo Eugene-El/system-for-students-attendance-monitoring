@@ -1,0 +1,33 @@
+.login-block {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px white solid;
+    background-color: var(--tsi-white-transparent);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-block button.mat-raised-button.mat-button-base.mat-primary {
+    padding: 0px 40px;
+}
+
+@media screen and (max-width: 600px) {
+    .login-block {
+        width: calc(100% - 100px);
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    .login-block {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .login-block {
+        width: 645px;
+    }
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoadingService } from './services/loading-service/loading.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { LoadingService } from './services/loading-service/loading.service';
 export class AppComponent {
 
   constructor(
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    public router: Router
   ) {
     this.loadingService.onLoadingStatusChange.subscribe((status) => {
       setTimeout(() => this.page.showLoading = status, 0);

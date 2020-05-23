@@ -36,6 +36,7 @@ import { NotificationComponent } from './common/components/notification/notifica
 import { StudentAttendancesListComponent } from './pages/studentAttendances/student-attendances-list/student-attendances-list.component';
 import { StudentAttendanceFormComponent } from './pages/studentAttendances/student-attendance-form/student-attendance-form.component';
 import { ConfigurationComponent } from './pages/configuration/configuration.component';
+import { AuthorizationComponent } from './pages/authorization/authorization.component';
 
 // Handle no translation case
 export class CustomMissingTranslationHandler implements MissingTranslationHandler {
@@ -60,6 +61,7 @@ export const MY_FORMATS = {
    declarations: [
       AppComponent,
       MenuComponent,
+      AuthorizationComponent,
       NotificationComponent,
       HomeComponent,
       FacultiesListComponent,
@@ -83,7 +85,7 @@ export const MY_FORMATS = {
          useFactory: httpTranslateLoader,
          deps: [HttpClient]
          },
-         missingTranslationHandler: {provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler},
+         //missingTranslationHandler: {provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler},
       }),
       BrowserAnimationsModule,      
       FormsModule,

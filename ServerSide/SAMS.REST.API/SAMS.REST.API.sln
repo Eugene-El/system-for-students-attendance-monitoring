@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAMS.BusinessLogic", "..\SA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAMS.Database.EF", "..\SAMS.Database.EF\SAMS.Database.EF.csproj", "{4CBA57AA-7C4A-481E-B53D-A9C5073450E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAMS.Attendance.Receiving.Service", "..\SAMS.Attendance.Receiving.Service\SAMS.Attendance.Receiving.Service.csproj", "{D70B6CCC-2409-490D-837E-CFC2CF881399}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAMS.Attendance.Receiving.Service", "..\SAMS.Attendance.Receiving.Service\SAMS.Attendance.Receiving.Service.csproj", "{D70B6CCC-2409-490D-837E-CFC2CF881399}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Emulators", "Emulators", "{89BB36A1-A965-4D95-AA66-296A0391B431}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emulator.TTI.REST.API", "..\Emulator.TTI.REST.API\Emulator.TTI.REST.API.csproj", "{D2230E5F-0877-429A-A81A-07E3E03FF6ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Emulator.TTI.REST.API", "..\Emulator.TTI.REST.API\Emulator.TTI.REST.API.csproj", "{D2230E5F-0877-429A-A81A-07E3E03FF6ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emulator.TTI.AuthorizationService", "..\Emulator.TTI.AuthorizationService\Emulator.TTI.AuthorizationService.csproj", "{C2FB9F4D-FFE4-4448-8560-1162E072F9A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,12 +43,17 @@ Global
 		{D2230E5F-0877-429A-A81A-07E3E03FF6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2230E5F-0877-429A-A81A-07E3E03FF6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2230E5F-0877-429A-A81A-07E3E03FF6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2FB9F4D-FFE4-4448-8560-1162E072F9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2FB9F4D-FFE4-4448-8560-1162E072F9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2FB9F4D-FFE4-4448-8560-1162E072F9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2FB9F4D-FFE4-4448-8560-1162E072F9A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D2230E5F-0877-429A-A81A-07E3E03FF6ED} = {89BB36A1-A965-4D95-AA66-296A0391B431}
+		{C2FB9F4D-FFE4-4448-8560-1162E072F9A5} = {89BB36A1-A965-4D95-AA66-296A0391B431}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC3F4BD6-75DD-48DD-8D9B-5BFF8CB045B6}
