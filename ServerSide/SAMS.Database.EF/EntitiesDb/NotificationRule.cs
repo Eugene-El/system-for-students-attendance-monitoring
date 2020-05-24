@@ -11,6 +11,7 @@ namespace SAMS.Database.EF.EntitiesDb
         public StudyProgramme StudyProgramme { get; set; }
         public SudentLanguage Language { get; set; }
         public LearningForm LearningForm { get; set; }
+        public int AttendancePeriod { get; set; }
         public int AttendanceProcent { get; set; }
         public string Message { get; set; }
 
@@ -25,6 +26,7 @@ namespace SAMS.Database.EF.EntitiesDb
                 StudyProgrammeId = this.StudyProgrammeId,
                 Language = this.Language,
                 LearningForm = this.LearningForm,
+                AttendancePeriod = this.AttendancePeriod,
                 AttendanceProcent = this.AttendanceProcent,
                 Message = this.Message
             };
@@ -38,6 +40,7 @@ namespace SAMS.Database.EF.EntitiesDb
             StudyProgrammeId = notificationRule.StudyProgrammeId;
             Language = notificationRule.Language;
             LearningForm = notificationRule.LearningForm;
+            AttendancePeriod = notificationRule.AttendancePeriod;
             AttendanceProcent = notificationRule.AttendanceProcent;
             Message = notificationRule.Message;
             return this;

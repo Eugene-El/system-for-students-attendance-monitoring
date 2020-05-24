@@ -10,6 +10,7 @@ namespace SAMS.BusinessLogic.Entities
         public int StudyProgrammeId { get; set; }
         public SudentLanguage Language { get; set; }
         public LearningForm LearningForm { get; set; }
+        public int AttendancePeriod { get; set; }
         public int AttendanceProcent { get; set; }
         public string Message { get; set; }
     }

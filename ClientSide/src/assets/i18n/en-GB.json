@@ -10,7 +10,7 @@
         "CLOSE": "Close",
         "CANCEL": "Cancel",
         "YES": "Yes",
-        "No": "No",
+        "NO": "No",
         "SUCESSFULLY_SAVED": "Successfully saved",
         "PLEASE_FILL_ALL_FIELDS": "Please, fill all required fields!",
         "ARE_YOU_SURE": "Are you sure?"
@@ -119,11 +119,12 @@
         "STUDY_PROGRAMME": "Study programme",
         "LANGUAGE": "Language",
         "LEARNING_FORM": "Learning form",
-        "ATTENDANCE_LESS_THAN": "Notify, if attendance less than",
+        "ATTENDANCE_FOR_TIME_PERIOD": "Take attendance for time period (days)",
+        "ATTENDANCE_LESS_THAN": "Notify, if attendance less than (procentage)",
         "MESSAGE": "Message",
         "NOTIFICATION_METHODS": {
             "EMAIL": "Email",
-            "SMS": "SMS"
+            "SMS": "Sms"
         }
     }
 }

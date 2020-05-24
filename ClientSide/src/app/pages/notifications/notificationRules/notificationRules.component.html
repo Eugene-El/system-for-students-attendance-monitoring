@@ -12,14 +12,14 @@
   <div class="notification-rule" *ngFor="let notificationRule of dataSources.notificationRules;">
 
     <div class="notification-rule-form">
-      <div class="medium-start">
+      <div style="grid-column: 1 / span 3;">
         <mat-form-field>
           <mat-label>{{ 'NOTIFICATION_RULE.NAME' | translate }}</mat-label>
           <input required matInput [(ngModel)]="notificationRule.name" autocomplete="off" [disabled]="!notificationRule.editing">
         </mat-form-field>
       </div>
 
-      <div class="small-end">
+      <div style="grid-column: 4 / span 1;">
         <mat-form-field>
           <mat-label>{{ 'NOTIFICATION_RULE.NOTIFICATION_METHOD' | translate }}</mat-label>
           <mat-select required [(ngModel)]="notificationRule.notificationMethod" [disabled]="!notificationRule.editing">
@@ -28,7 +28,7 @@
         </mat-form-field>
       </div>
 
-      <div class="small-start">
+      <div style="grid-column: 1 / span 2;">
         <mat-form-field>
           <mat-label>{{ 'NOTIFICATION_RULE.FACULTY' | translate }}</mat-label>
           <mat-select required (selectionChange)="methods.onFacultyChange($event, notificationRule)" [(ngModel)]="notificationRule.facultyId" [disabled]="!notificationRule.editing">
@@ -37,7 +37,7 @@
         </mat-form-field>
       </div>
     
-      <div class="medium-end">
+      <div style="grid-column: 3 / span 2;">
         <mat-form-field>
           <mat-label>{{ 'NOTIFICATION_RULE.STUDY_PROGRAMME' | translate }}</mat-label>
           <mat-select required [disabled]="notificationRule.studyProgrammes == null || notificationRule.studyProgrammes.length <= 0 || !notificationRule.editing" [(ngModel)]="notificationRule.studyProgrammeId">
@@ -47,7 +47,7 @@
       </div>
 
       
-      <div class="small-start">
+      <div style="grid-column: 1 / span 1;">
         <mat-form-field>
           <mat-label>{{ 'NOTIFICATION_RULE.LANGUAGE' | translate }}</mat-label>
           <mat-select required [(ngModel)]="notificationRule.language" [disabled]="!notificationRule.editing">
@@ -56,7 +56,7 @@
         </mat-form-field>
       </div>
 
-      <div class="small-middle">
+      <div style="grid-column: 2 / span 1;">
         <mat-form-field>
           <mat-label>{{ 'NOTIFICATION_RULE.LEARNING_FORM' | translate }}</mat-label>
           <mat-select required [(ngModel)]="notificationRule.learningForm" [disabled]="!notificationRule.editing">
@@ -65,14 +65,21 @@
         </mat-form-field>
       </div>
 
-      <div class="small-end">
+      <div style="grid-column: 3 / span 1;">
+        <mat-form-field>
+          <mat-label>{{ 'NOTIFICATION_RULE.ATTENDANCE_FOR_TIME_PERIOD' | translate }}</mat-label>
+          <input type="number" min="0" required matInput [(ngModel)]="notificationRule.attendancePeriod" [disabled]="!notificationRule.editing">
+        </mat-form-field>
+      </div>
+
+      <div style="grid-column: 4 / span 1;">
         <mat-form-field>
           <mat-label>{{ 'NOTIFICATION_RULE.ATTENDANCE_LESS_THAN' | translate }}</mat-label>
           <input type="number" min="0" max="100" required matInput [(ngModel)]="notificationRule.attendanceProcent" [disabled]="!notificationRule.editing">
         </mat-form-field>
       </div>
 
-      <div class="big">
+      <div style="grid-column: 1 / span 4;">
         <mat-form-field >
           <mat-label>{{ 'NOTIFICATION_RULE.MESSAGE' | translate }}</mat-label>
           <textarea required matInput [(ngModel)]="notificationRule.message" autocomplete="off" style="height: 100px;" [disabled]="!notificationRule.editing"></textarea>

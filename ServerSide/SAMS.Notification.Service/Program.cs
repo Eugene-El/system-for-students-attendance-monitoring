@@ -3,8 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SAMS.Database.EF.EntityFramework;
+using SAMS.Notification.Service.Configs;
 
-namespace SAMS.Attendance.Receiving.Service
+namespace SAMS.Notification.Service
 {
     public class Program
     {
@@ -24,7 +25,13 @@ namespace SAMS.Attendance.Receiving.Service
                     services.AddDbContextPool<DataContext>(options =>
                         options.UseSqlServer(configuration.GetConnectionString("StudentAttendanceDB")));
 
-                    services.Configure<ApiPaths>(configuration.GetSection("ApiPaths"));
+                    services.AddSingleton(configuration
+                        .GetSection(nameof(EmailNotificationConfig))
+                        .Get<EmailNotificationConfig>());
+
+                    services.AddSingleton(configuration
+                        .GetSection(nameof(SmsNotificationConfig))
+                        .Get<SmsNotificationConfig>());
 
                     services.AddHostedService<Worker>();
                 });

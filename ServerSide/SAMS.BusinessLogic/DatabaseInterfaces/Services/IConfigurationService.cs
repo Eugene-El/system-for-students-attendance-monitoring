@@ -12,5 +12,8 @@ namespace SAMS.BusinessLogic.DatabaseInterfaces.Services
 
         public DateTime? GetLastDataSyncTime();
         public void SetLastDataSyncTime(DateTime dateTime);
+
+        public DateTime? GetLastNotificationTime();
+        public void SetLastNotificationTime(DateTime dateTime);
     }
 }

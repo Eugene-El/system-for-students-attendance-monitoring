@@ -3,9 +3,7 @@ using SAMS.BusinessLogic.DatabaseInterfaces.Services;
 using SAMS.BusinessLogic.Entities;
 using SAMS.Database.EF.EntityFramework;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SAMS.Database.EF.Services
 {
@@ -58,8 +56,28 @@ namespace SAMS.Database.EF.Services
 
         public DateTime? GetLastDataSyncTime()
         {
+            return GetTime(EntitiesDb.ConfigurationType.LastDataSyncTime);
+        }
+
+        public void SetLastDataSyncTime(DateTime dateTime)
+        {
+            SetTime(EntitiesDb.ConfigurationType.LastDataSyncTime, dateTime);
+        }
+
+        public DateTime? GetLastNotificationTime()
+        {
+            return GetTime(EntitiesDb.ConfigurationType.LastNotificationTime);
+        }
+
+        public void SetLastNotificationTime(DateTime dateTime)
+        {
+            SetTime(EntitiesDb.ConfigurationType.LastNotificationTime, dateTime);
+        }
+
+        private DateTime? GetTime(EntitiesDb.ConfigurationType configurationType)
+        {
             var configurationString = dataContext.Configurations.FirstOrDefault(c =>
-                c.Type == EntitiesDb.ConfigurationType.LastDataSyncTime)?.Content;
+                c.Type == configurationType)?.Content;
 
             if (string.IsNullOrEmpty(configurationString))
                 return null;
@@ -67,16 +85,16 @@ namespace SAMS.Database.EF.Services
             return JsonConvert.DeserializeObject<DateTime>(configurationString);
         }
 
-        public void SetLastDataSyncTime(DateTime dateTime)
+        private void SetTime(EntitiesDb.ConfigurationType configurationType, DateTime dateTime)
         {
             var configurationObject = dataContext.Configurations.FirstOrDefault(c =>
-                c.Type == EntitiesDb.ConfigurationType.LastDataSyncTime);
+                c.Type == configurationType);
 
             if (configurationObject == null)
                 configurationObject = new EntitiesDb.Configuration
                 {
                     Id = 0,
-                    Type = EntitiesDb.ConfigurationType.LastDataSyncTime
+                    Type = configurationType
                 };
 
             configurationObject.Content = JsonConvert.SerializeObject(dateTime);
@@ -88,6 +106,6 @@ namespace SAMS.Database.EF.Services
 
             dataContext.SaveChanges();
         }
-
     }
+
 }

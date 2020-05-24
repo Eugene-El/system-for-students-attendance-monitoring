@@ -27,6 +27,7 @@ namespace SAMS.Database.EF.Services
                     StudyProgrammeId = n.StudyProgrammeId,
                     Language = n.Language,
                     LearningForm = n.LearningForm,
+                    AttendancePeriod = n.AttendancePeriod,
                     AttendanceProcent = n.AttendanceProcent,
                     Message = n.Message
                 });

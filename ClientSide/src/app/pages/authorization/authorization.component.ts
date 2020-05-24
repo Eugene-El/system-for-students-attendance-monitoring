@@ -54,7 +54,6 @@ export class AuthorizationComponent implements OnInit {
       this.loadingService.addLoading();
       this.authorizationDataService.authorize(this.page.authorizationModel)
         .then((user) => {
-          console.log("User:", user);
           this.loadingService.endLoading();
           this.authorizationService.setAuthorizationInfo(user.token, user.role);
           this.router.navigate(['home']);

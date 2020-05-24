@@ -15,6 +15,7 @@ namespace SAMS.Database.EF.EntityFramework
         public DbSet<StudentAttendance> StudentAttendances { get; set; }
         public DbSet<Configuration> Configurations { get; set; }
         public DbSet<NotificationRule> NotificationRules { get; set; }
+        public DbSet<NotificationHistory> NotificationHistories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

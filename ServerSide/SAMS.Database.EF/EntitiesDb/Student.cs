@@ -28,6 +28,7 @@ namespace SAMS.Database.EF.EntitiesDb
         public string Comment { get; set; }
 
         public ICollection<StudentAttendance> StudentAttendances { get; set; }
+        public ICollection<NotificationHistory> NotificationHistories { get; set; }
 
         public BusinessLogic.Entities.Student MapToEntity()
         {

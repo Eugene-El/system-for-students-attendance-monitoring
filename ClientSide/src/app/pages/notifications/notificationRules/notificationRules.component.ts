@@ -80,7 +80,7 @@ export class NotificationRulesComponent implements OnInit {
     },
     addNew: () => {
       let notificationRules = this.dataSources.notificationRules.reverse();
-      notificationRules.push(new NotificationRuleModel(0, "", null, null, null, null, 0, "", null, true));
+      notificationRules.push(new NotificationRuleModel(0, "", null, null, null, null, 30, 20, "", null, true));
       this.page.isEditing = true;
       this.dataSources.notificationRules = notificationRules.reverse();
     },

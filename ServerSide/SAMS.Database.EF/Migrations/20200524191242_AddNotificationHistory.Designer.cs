@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SAMS.Database.EF.EntityFramework;
 
 namespace SAMS.Database.EF.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200524191242_AddNotificationHistory")]
+    partial class AddNotificationHistory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,17 +79,14 @@ namespace SAMS.Database.EF.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ErrorMessage")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AttendanceProcent")
+                        .HasColumnType("int");
 
                     b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("SendingTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
 
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
@@ -96,7 +95,7 @@ namespace SAMS.Database.EF.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("NotificationHistories");
+                    b.ToTable("NotificationHistory");
                 });
 
             modelBuilder.Entity("SAMS.Database.EF.EntitiesDb.NotificationRule", b =>

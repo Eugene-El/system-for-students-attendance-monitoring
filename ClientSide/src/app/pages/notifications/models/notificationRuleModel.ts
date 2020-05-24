@@ -8,6 +8,7 @@ export class NotificationRuleModel {
     public studyProgrammeId: number;
     public language: number;
     public learningForm: number;
+    public attendancePeriod: number;
     public attendanceProcent: number;
     public message: string;
 
@@ -22,6 +23,7 @@ export class NotificationRuleModel {
         studyProgrammeId: number,
         language: number,
         learningForm: number,
+        attendancePeriod: number,
         attendanceProcent: number,
         message: string,
         facultyId: number,
@@ -33,6 +35,7 @@ export class NotificationRuleModel {
         this.studyProgrammeId = studyProgrammeId;
         this.language = language;
         this.learningForm = learningForm;
+        this.attendancePeriod = attendancePeriod;
         this.attendanceProcent = attendanceProcent;
         this.message = message;
 

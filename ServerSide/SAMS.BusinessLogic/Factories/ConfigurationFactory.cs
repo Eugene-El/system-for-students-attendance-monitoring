@@ -50,5 +50,15 @@ namespace SAMS.BusinessLogic.Factories
         {
             Database.ConfigurationService.SetLastDataSyncTime(dateTime);
         }
+
+        public DateTime? GetLastNotificationTime()
+        {
+            return Database.ConfigurationService.GetLastNotificationTime();
+        }
+
+        public void SetLastNotificationTime(DateTime dateTime)
+        {
+            Database.ConfigurationService.SetLastNotificationTime(dateTime);
+        }
     }
 }
