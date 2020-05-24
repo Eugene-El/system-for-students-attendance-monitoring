@@ -12,6 +12,7 @@ import { StudentAttendanceFormComponent } from '../pages/studentAttendances/stud
 import { ConfigurationComponent } from '../pages/configuration/configuration.component';
 import { AuthorizationComponent } from '../pages/authorization/authorization.component';
 import { SeeOwnAttendanceComponent } from '../pages/seeOwnAttendance/seeOwnAttendance.component';
+import { NotificationRulesComponent } from '../pages/notifications/notificationRules/notificationRules.component';
 
 const routes: Routes = [
 
@@ -27,6 +28,7 @@ const routes: Routes = [
     { path: 'students/attendances/:studentId/:id', component: StudentAttendanceFormComponent },
     { path: 'configuration', component: ConfigurationComponent },
     { path: 'seeOwnAttendance', component: SeeOwnAttendanceComponent },
+    { path: 'notifications', component: NotificationRulesComponent },
     { path: '**', redirectTo: '/login' }
 
 ];

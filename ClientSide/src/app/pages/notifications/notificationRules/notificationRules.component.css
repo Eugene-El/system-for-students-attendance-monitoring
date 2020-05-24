@@ -1,0 +1,64 @@
+.notification-rule {
+
+    margin: 20px 0px;
+    padding: 14px;
+    border: 3px var(--tsi-white) solid;
+    border-radius: 14px;
+    background-color: var(--tsi-white-transparent);
+
+    
+}
+.notification-rule-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 7px;
+}
+
+.notification-rule mat-form-field {
+    width: 100%;
+}
+.notification-rule .small-start {
+    grid-column: 1 / span 1;
+}
+.notification-rule .small-middle {
+    grid-column: 2 / span 1;
+}
+.notification-rule .small-end {
+    grid-column: 3 / span 1;
+}
+.notification-rule .medium-start {
+    grid-column: 1 / span 2;
+}
+.notification-rule .medium-end {
+    grid-column: 2 / span 2;
+}
+.notification-rule .big {
+    grid-column: 1 / span 3;
+}
+
+/*.notification-rule {
+
+    margin: 20px 0px;
+    padding: 14px;
+    border: 3px var(--tsi-white) solid;
+    border-radius: 14px;
+    background-color: var(--tsi-white-transparent);
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.notification-rule mat-form-field {
+    margin: 7px;
+    width: 100%;
+}
+.notification-rule .small {
+    width: 33%;
+}
+.notification-rule .medium {
+    width: 66%;
+}
+.notification-rule .big {
+    width: 100%;
+}*/

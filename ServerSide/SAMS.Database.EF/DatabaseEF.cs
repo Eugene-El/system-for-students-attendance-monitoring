@@ -72,5 +72,17 @@ namespace SAMS.Database.EF
                 return configurationService;
             }
         }
+
+
+        private NotificationRuleService notificationRuleService;
+        public INotificationRuleService NotificationRuleService
+        {
+            get
+            {
+                if (notificationRuleService == null)
+                    notificationRuleService = new NotificationRuleService(dataContext);
+                return notificationRuleService;
+            }
+        }
     }
 }

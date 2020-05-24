@@ -8,8 +8,12 @@
         "DELETE": "Delete",
         "BACK": "Back",
         "CLOSE": "Close",
+        "CANCEL": "Cancel",
+        "YES": "Yes",
+        "No": "No",
         "SUCESSFULLY_SAVED": "Successfully saved",
-        "PLEASE_FILL_ALL_FIELDS": "Please, fill all required fields!"
+        "PLEASE_FILL_ALL_FIELDS": "Please, fill all required fields!",
+        "ARE_YOU_SURE": "Are you sure?"
     },
     "AUTHORIZATION": {
         "LOGIN": "Login",
@@ -26,7 +30,8 @@
         "SUBJECTS": "Subjects",
         "STUDENTS": "Students",
         "CONFIGURATION": "Configuration",
-        "SEE_OWN_ATTENDANCE": "See own attendance"
+        "SEE_OWN_ATTENDANCE": "See own attendance",
+        "NOTIFICATIONS": "Notifications"
     },
     "FACULTY": {
         "FACULTY": "Faculty",
@@ -106,5 +111,19 @@
         "SUBJECT": "Subject",
         "ATTENDANCE_SUMMARY_BY_DAYS": "Attendance summary by days (procentage)",
         "SUBJECT_ATTENDANCE_BY_DAYS": "Subject attendance by days (procentage)"
+    },
+    "NOTIFICATION_RULE": {
+        "NAME": "Name",
+        "NOTIFICATION_METHOD": "Notification method",
+        "FACULTY": "Faculty",
+        "STUDY_PROGRAMME": "Study programme",
+        "LANGUAGE": "Language",
+        "LEARNING_FORM": "Learning form",
+        "ATTENDANCE_LESS_THAN": "Notify, if attendance less than",
+        "MESSAGE": "Message",
+        "NOTIFICATION_METHODS": {
+            "EMAIL": "Email",
+            "SMS": "SMS"
+        }
     }
 }

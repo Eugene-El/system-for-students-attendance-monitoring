@@ -9,5 +9,6 @@ namespace SAMS.BusinessLogic.DatabaseInterfaces
         public IStudentService StudentService { get; }
         public IStudentAttendanceService StudentAttendanceService { get; }
         public IConfigurationService ConfigurationService { get; }
+        public INotificationRuleService NotificationRuleService { get; }
     }
 }

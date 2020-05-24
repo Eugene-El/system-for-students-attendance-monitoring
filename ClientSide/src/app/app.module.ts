@@ -40,6 +40,8 @@ import { StudentAttendanceFormComponent } from './pages/studentAttendances/stude
 import { ConfigurationComponent } from './pages/configuration/configuration.component';
 import { AuthorizationComponent } from './pages/authorization/authorization.component';
 import { SeeOwnAttendanceComponent } from './pages/seeOwnAttendance/seeOwnAttendance.component';
+import { NotificationRulesComponent } from './pages/notifications/notificationRules/notificationRules.component';
+import { AreYouSurePopupComponent } from './common/components/areYouSurePopup/areYouSurePopup.component';
 
 
 // Handle no translation case
@@ -78,7 +80,9 @@ export const MY_FORMATS = {
       StudentAttendancesListComponent,
       StudentAttendanceFormComponent,
       ConfigurationComponent,
-      SeeOwnAttendanceComponent
+      SeeOwnAttendanceComponent,
+      NotificationRulesComponent,
+      AreYouSurePopupComponent
    ],
    imports: [
       BrowserModule,

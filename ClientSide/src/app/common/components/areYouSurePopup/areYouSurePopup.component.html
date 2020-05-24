@@ -1,0 +1,12 @@
+<div mat-dialog-content>
+  <p>{{ 'COMMON.ARE_YOU_SURE' }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" mat-button [mat-dialog-close]="true" cdkFocusInitial>
+    <span> {{ 'COMMON.YES' | translate }} </span>
+  </button>
+  
+  <button mat-raised-button mat-button [mat-dialog-close]="false" style="margin-left: 10px;">
+    <span> {{ 'COMMON.NO' | translate }} </span>
+  </button>
+</div>

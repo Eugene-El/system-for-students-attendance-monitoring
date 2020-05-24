@@ -1,8 +1,5 @@
 ﻿using SAMS.BusinessLogic.DatabaseInterfaces;
 using SAMS.BusinessLogic.Factories;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SAMS.BusinessLogic
 {
@@ -70,6 +67,17 @@ namespace SAMS.BusinessLogic
                 if (configurationFactory == null)
                     configurationFactory = new ConfigurationFactory(Database);
                 return configurationFactory;
+            }
+        }
+
+        private NotificationRuleFactory notificationRuleFactory;
+        public NotificationRuleFactory NotificationRuleFactory
+        {
+            get
+            {
+                if (notificationRuleFactory == null)
+                    notificationRuleFactory = new NotificationRuleFactory(Database);
+                return notificationRuleFactory;
             }
         }
     }

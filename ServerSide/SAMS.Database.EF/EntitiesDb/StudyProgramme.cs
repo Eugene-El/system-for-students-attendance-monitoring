@@ -15,6 +15,7 @@ namespace SAMS.Database.EF.EntitiesDb
         public Faculty Faculty { get; set; }
 
         public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<NotificationRule> NotificationRules { get; set; }
 
         public BusinessLogic.Entities.StudyProgramme MapToEntity()
         {
