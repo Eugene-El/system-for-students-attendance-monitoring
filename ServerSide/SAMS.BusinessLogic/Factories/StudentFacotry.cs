@@ -40,6 +40,16 @@ namespace SAMS.BusinessLogic.Factories
                 });
         }
 
+        public int GetStudentIdByCode(string code)
+        {
+            return Database.StudentService.GetAll()
+                .Select(s => new {
+                    Id = s.Id,
+                    Code = s.Code
+                })
+                .FirstOrDefault(s => s.Code == code)?.Id ?? 0;
+        }
+
         public StudentModel Get(int id)
         {
             var student = Database.StudentService.Get(id);

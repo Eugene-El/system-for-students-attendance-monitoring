@@ -8,6 +8,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { StudentsService } from '../services/students.service';
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
 import { Sort } from '@angular/material/sort';
+import { AuthorizationService } from 'src/app/services/authorization-service/authorization.service';
 
 @Component({
   selector: 'app-students-list',
@@ -23,13 +24,19 @@ export class StudentsListComponent implements OnInit {
     private loadingService: LoadingService,
     private translateService: TranslateService,
     private notificationService: NotificationService,
-    private router: Router
+    private router: Router,
+    private authorizationService: AuthorizationService
     ) { }
 
   ngOnInit() {
     this.loadingService.endLoading();
     this.methods.getStudents();
     this.translateService.onLangChange.subscribe(() => { this.methods.getStudents(); });
+    this.page.showStudentEdit = this.authorizationService.isWorker();
+  }
+
+  page = {
+    showStudentEdit: false
   }
 
   dataSources = {

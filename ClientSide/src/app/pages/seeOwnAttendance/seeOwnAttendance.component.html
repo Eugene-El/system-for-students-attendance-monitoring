@@ -1,0 +1,85 @@
+<h1>
+  {{ 'HEADERS.SEE_OWN_ATTENDANCE' | translate }}
+</h1>
+
+<div class="m20t data-form">
+  
+  <mat-form-field class="short-field">
+    <mat-label>{{ 'SEE_OWN_ATTENDANCE.FROM' | translate }}</mat-label>
+    <input matInput [matDatepicker]="picker1" [max]="page.to" [(ngModel)]="page.from">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="short-field">
+    <mat-label>{{ 'SEE_OWN_ATTENDANCE.TO' | translate }}</mat-label>
+    <input matInput [matDatepicker]="picker2" [min]="page.from" [(ngModel)]="page.to">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+
+</div>
+
+
+<button mat-raised-button color="primary"
+  (click)="methods.filter()">
+  <mat-icon>filter_none</mat-icon>
+  <span> {{ 'COMMON.FILTER' | translate }} </span>
+</button>
+
+
+<div *ngIf="page.statistics != null && page.statistics.globalStatistics.length > 0; else noData">
+
+  <h3 class="header">
+    {{ 'SEE_OWN_ATTENDANCE.ATTENDANCE_SUMMARY' | translate }}
+  </h3>
+  <canvas baseChart
+    chartType="pie"
+    [colors]="options.colors"
+    [labels]="options.labels"
+    [data]="[page.statistics.globalAttendanceProcent, 100 - page.statistics.globalAttendanceProcent]">
+  </canvas>
+
+
+  <h3 class="header">
+    {{ 'SEE_OWN_ATTENDANCE.ATTENDANCE_SUMMARY_BY_DAYS' | translate }}
+  </h3>
+  <canvas baseChart
+    chartType="line"
+    [legend]="false"
+    [colors]="options.tsiColor"
+    [options]="options.lineChartOptions"
+    [labels]="dataSources.globalStatLabels"
+    [data]="dataSources.globalStatData">
+  </canvas>
+
+  
+  <div class="m20t data-form">
+    
+    <h3 class="header">
+      {{ 'SEE_OWN_ATTENDANCE.SUBJECT_ATTENDANCE_BY_DAYS' | translate }}
+    </h3>
+    <mat-form-field class="medium-field">
+      <mat-label>{{ 'SEE_OWN_ATTENDANCE.SUBJECT' | translate }}</mat-label>
+      <mat-select (valueChange)="methods.subjectSelected($event)">
+        <mat-option *ngFor="let subject of dataSources.subjects" [value]="subject.id">{{ subject.title }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <canvas 
+    baseChart
+    chartType="line"
+    [legend]="false"
+    [colors]="options.tsiColor"
+    [options]="options.lineChartOptions"
+    [labels]="dataSources.subjectStatLabels"
+    [data]="dataSources.subjectStatData">
+  </canvas>
+
+</div>
+
+<ng-template #noData>
+  <h2>
+    {{ 'SEE_OWN_ATTENDANCE.NOT_DATA' | translate }}
+  </h2>
+</ng-template>

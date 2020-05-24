@@ -27,6 +27,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 
+import { ChartsModule } from 'ng2-charts';
+
 import { StudyProgrammePopupComponent } from './pages/faculties/faculty-form/study-programme-popup/study-programme-popup.component';
 import { SubjectsListComponent } from './pages/subjects/subjects-list/subjects-list.component';
 import { SubjectFormComponent } from './pages/subjects/subject-form/subject-form.component';
@@ -37,6 +39,8 @@ import { StudentAttendancesListComponent } from './pages/studentAttendances/stud
 import { StudentAttendanceFormComponent } from './pages/studentAttendances/student-attendance-form/student-attendance-form.component';
 import { ConfigurationComponent } from './pages/configuration/configuration.component';
 import { AuthorizationComponent } from './pages/authorization/authorization.component';
+import { SeeOwnAttendanceComponent } from './pages/seeOwnAttendance/seeOwnAttendance.component';
+
 
 // Handle no translation case
 export class CustomMissingTranslationHandler implements MissingTranslationHandler {
@@ -73,7 +77,8 @@ export const MY_FORMATS = {
       StudentFormComponent,
       StudentAttendancesListComponent,
       StudentAttendanceFormComponent,
-      ConfigurationComponent
+      ConfigurationComponent,
+      SeeOwnAttendanceComponent
    ],
    imports: [
       BrowserModule,
@@ -101,7 +106,9 @@ export const MY_FORMATS = {
       MatDialogModule,
       MatSelectModule,
       MatDatepickerModule,
-      MatNativeDateModule
+      MatNativeDateModule,
+
+      ChartsModule 
       
    ],
    providers: [

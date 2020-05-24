@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using SAMS.BusinessLogic;
 using SAMS.BusinessLogic.Models.Common;
 using SAMS.Database.EF;
@@ -57,6 +58,13 @@ namespace SAMS.REST.API.Controllers
                         break;
                 }
                 return currentLanguage;
+            }
+        }
+
+        protected AuthorizedUser CurrentUser {
+            get {
+                string token = Request.Headers["token"];
+                return AuthorizedUsers.FirstOrDefault(u => u.Token == token);
             }
         }
     }

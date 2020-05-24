@@ -60,7 +60,9 @@ namespace SAMS.Database.EF.Services
         private void CheckDateAndSubjectUniqueness(StudentAttendance studentAttendance)
         {
             if (dataContext.StudentAttendances.Any(s => s.Id != studentAttendance.Id &&
-                s.Date == studentAttendance.Date && s.SubjectId == studentAttendance.SubjectId))
+                s.StudentId == studentAttendance.StudentId &&
+                s.Date == studentAttendance.Date &&
+                s.SubjectId == studentAttendance.SubjectId))
                 throw new System.Exception("Student attendance for this subject and day already exist!");
         }
     }

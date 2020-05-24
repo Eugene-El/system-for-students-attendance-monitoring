@@ -15,7 +15,7 @@
         "LOGIN": "Login",
         "PASSWORD": "Password",
         "LOG_IN": "Log in",
-        "UNATHORIZED": "Unathorized"
+        "UNAUTHORIZED": "You are unauthorized or don't have permissions for this action"
     },
     "HOME": {
         "HELLO_MESSAGE": "Welcome to System for student's attendance monitoring"
@@ -25,7 +25,8 @@
         "FACULTIES": "Faculties",
         "SUBJECTS": "Subjects",
         "STUDENTS": "Students",
-        "CONFIGURATION": "Configuration"
+        "CONFIGURATION": "Configuration",
+        "SEE_OWN_ATTENDANCE": "See own attendance"
     },
     "FACULTY": {
         "FACULTY": "Faculty",
@@ -94,5 +95,16 @@
         "NOTIFICATION_AND_DATA_SYNC": "Notification and data-sync time periods configuration",
         "DATA_SYNC_PERIOD_H": "Data-sync time period (hours)",
         "NOTIFICATION_PERIOD_H": "Notifications time period (hours)"
+    },
+    "SEE_OWN_ATTENDANCE": {
+        "FROM": "From",
+        "TO": "To",
+        "NO_DATA": "No data to show",
+        "ATTENDANCE_SUMMARY": "Attendance summary",
+        "VISITED": "Visited (procentage)",
+        "NOT_VISITED": "Not visited (procentage)",
+        "SUBJECT": "Subject",
+        "ATTENDANCE_SUMMARY_BY_DAYS": "Attendance summary by days (procentage)",
+        "SUBJECT_ATTENDANCE_BY_DAYS": "Subject attendance by days (procentage)"
     }
 }
