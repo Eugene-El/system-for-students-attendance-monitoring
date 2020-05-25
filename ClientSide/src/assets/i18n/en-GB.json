@@ -22,7 +22,11 @@
         "UNAUTHORIZED": "You are unauthorized or don't have permissions for this action"
     },
     "HOME": {
-        "HELLO_MESSAGE": "Welcome to System for student's attendance monitoring"
+        "HELLO_MESSAGE": "Welcome to System for student's attendance monitoring",
+        "CURRENT_TIME": "Current time",
+        "CURRENT_ONLINE": "Current online",
+        "VISITED": "Visited (percentage)",
+        "NOT_VISITED": "Not visited (percentage)"
     },
     "HEADERS": {
         "HOME": "Home",
@@ -107,11 +111,11 @@
         "TO": "To",
         "NO_DATA": "No data to show",
         "ATTENDANCE_SUMMARY": "Attendance summary",
-        "VISITED": "Visited (procentage)",
-        "NOT_VISITED": "Not visited (procentage)",
+        "VISITED": "Visited (percentage)",
+        "NOT_VISITED": "Not visited (percentage)",
         "SUBJECT": "Subject",
-        "ATTENDANCE_SUMMARY_BY_DAYS": "Attendance summary by days (procentage)",
-        "SUBJECT_ATTENDANCE_BY_DAYS": "Subject attendance by days (procentage)"
+        "ATTENDANCE_SUMMARY_BY_DAYS": "Attendance summary by days (percentage)",
+        "SUBJECT_ATTENDANCE_BY_DAYS": "Subject attendance by days (percentage)"
     },
     "NOTIFICATION_RULE": {
         "NAME": "Name",
@@ -121,7 +125,7 @@
         "LANGUAGE": "Language",
         "LEARNING_FORM": "Learning form",
         "ATTENDANCE_FOR_TIME_PERIOD": "Take attendance for time period (days)",
-        "ATTENDANCE_LESS_THAN": "Notify, if attendance less than (procentage)",
+        "ATTENDANCE_LESS_THAN": "Notify, if attendance less than (percentage)",
         "MESSAGE": "Message",
         "TOKENS": "You can use {{Name}}, {{Surname}}, {{StudentCode}}, {{AttendancePercent}} tokens in messages to inject data",
         "NOTIFICATION_METHODS": {

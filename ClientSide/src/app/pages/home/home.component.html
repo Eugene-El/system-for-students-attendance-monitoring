@@ -1,6 +1,19 @@
 <h1>{{ 'HOME.HELLO_MESSAGE' | translate }}</h1>
 
-<p>Curent date-time: 10/02/2020 12:04</p>
+<p>{{ 'HOME.CURRENT_TIME' | translate }}: {{ page.currentTime }}</p>
 
-<p>Online users count: 1</p>
+<p>{{ 'HOME.CURRENT_ONLINE' | translate }}: {{ page.currentOnline }}</p>
 
+<div *ngIf="dataSorces.chartData.length > 0">
+    <div *ngFor="let chartData of dataSorces.chartData; index as i;">
+        <h3>
+            {{ dataSorces.chartTitles[i] }}
+        </h3>
+        <canvas baseChart
+            chartType="doughnut"
+            [colors]="options.colors"
+            [data]="dataSorces.chartData[i]"
+            [labels]="dataSorces.chartLabels">
+        </canvas>
+    </div>
+</div>

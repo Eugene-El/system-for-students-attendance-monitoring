@@ -13,6 +13,20 @@ namespace SAMS.Database.EF.Services
             this.dataContext = dataContext;
         }
 
+        public IQueryable<StudentAttendance> GetAll()
+        {
+            return dataContext.StudentAttendances
+                .Select(s => new StudentAttendance
+                {
+                    Id = s.Id,
+                    StudentId = s.StudentId,
+                    SubjectId = s.SubjectId,
+                    Date = s.Date,
+                    NecessaryAttendance = s.NecessaryAttendance,
+                    RealAttendance = s.RealAttendance,
+                });
+        }
+
         public IQueryable<StudentAttendance> GetAllByStudentId(int id)
         {
             return dataContext.StudentAttendances

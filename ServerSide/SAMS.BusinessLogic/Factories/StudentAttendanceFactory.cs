@@ -4,6 +4,7 @@ using SAMS.BusinessLogic.Models.Common;
 using SAMS.BusinessLogic.Models.StudentAttendances;
 using SAMS.BusinessLogic.Models.StudentAttendances.Statistics;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SAMS.BusinessLogic.Factories
@@ -94,6 +95,69 @@ namespace SAMS.BusinessLogic.Factories
             result.GlobalAttendanceProcent = (int)(studentAttendances.Sum(s => 100d * s.RealAttendance / s.NecessaryAttendance) / studentAttendances.Count());
 
             return result;
+        }
+
+        public List<FacultyAttendanceModel> GetStatisticsByFaculties(Language language, DateTime from, DateTime to)
+        {
+            var faculties = Database.FacultyService.GetAll()
+                .Select(f => new ExtraSelectModel
+                {
+                    Id = f.Id,
+                    Title = SelectLocalization(language, f.TitleEn, f.TitleLv, f.TitleRu),
+                    Options = f.StudyProgrammes.Select(s => new SelectModel
+                    {
+                        Id = s.Id,
+                        Title = SelectLocalization(language, s.TitleEn, s.TitleLv, s.TitleRu)
+                    })
+                })
+                .ToList();
+           var students = Database.StudentService.GetAll()
+                .Select(s => new
+                {
+                    Id = s.Id,
+                    StudyProgrammeId = s.StudyProgrammeId
+                })
+                .ToList()
+                .Select(s => new
+                {
+                    Id = s.Id,
+                    FacltyId = faculties.First(f => f.Options.Any(sp => sp.Id == s.StudyProgrammeId)).Id
+                }).ToList();
+            var studentAttendances = Database.StudentAttendanceService.GetAll()
+                .Select(a => new
+                {
+                    Id = a.Id,
+                    Date = a.Date,
+                    RealAttendance = a.RealAttendance,
+                    NecessaryAttendance = a.NecessaryAttendance,
+                    StudentId = a.StudentId
+                })
+                .ToList()
+                .Select(a => new {
+                    Id = a.Id,
+                    Date = a.Date,
+                    RealAttendance = a.RealAttendance,
+                    NecessaryAttendance = a.NecessaryAttendance,
+                    FacultyId = students.First(s => s.Id == a.StudentId).FacltyId
+                })
+                .Where(a => a.Date >= from && a.Date <= to)
+                .ToList();
+
+            List<FacultyAttendanceModel> facultyAttendances = new List<FacultyAttendanceModel>();
+
+            faculties.ForEach(faculty =>
+            {
+                var attendances = studentAttendances.Where(a => a.FacultyId == faculty.Id);
+                double percent = 100d * attendances.Sum(a => a.RealAttendance) / attendances.Sum(a => a.NecessaryAttendance);
+                percent = ((int)(percent * 100)) / 100d;
+                facultyAttendances.Add(new FacultyAttendanceModel
+                {
+                    Title = faculty.Title,
+                    AttendancePercent = percent
+                });
+            });
+
+            return facultyAttendances;
         }
 
         public StudentAttendanceModel Get(int id)

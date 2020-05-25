@@ -8,6 +8,7 @@ namespace SAMS.BusinessLogic.DatabaseInterfaces.Services
 {
     public interface IStudentAttendanceService
     {
+        IQueryable<StudentAttendance> GetAll();
         IQueryable<StudentAttendance> GetAllByStudentId(int id);
         StudentAttendance Get(int id);
         StudentAttendance Add(StudentAttendance studentAttendance);
