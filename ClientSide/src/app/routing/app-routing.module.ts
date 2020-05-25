@@ -13,6 +13,7 @@ import { ConfigurationComponent } from '../pages/configuration/configuration.com
 import { AuthorizationComponent } from '../pages/authorization/authorization.component';
 import { SeeOwnAttendanceComponent } from '../pages/seeOwnAttendance/seeOwnAttendance.component';
 import { NotificationRulesComponent } from '../pages/notifications/notificationRules/notificationRules.component';
+import { NotificationHistoriesComponent } from '../pages/notificationHistories/notificationHistories.component';
 
 const routes: Routes = [
 
@@ -29,6 +30,7 @@ const routes: Routes = [
     { path: 'configuration', component: ConfigurationComponent },
     { path: 'seeOwnAttendance', component: SeeOwnAttendanceComponent },
     { path: 'notifications', component: NotificationRulesComponent },
+    { path: 'notificationHistories', component: NotificationHistoriesComponent },
     { path: '**', redirectTo: '/login' }
 
 ];

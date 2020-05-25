@@ -48,6 +48,8 @@ export class MenuComponent implements OnInit {
         this.dataSources.menuItems.push(new MenuItem("HEADERS.SEE_OWN_ATTENDANCE", "/seeOwnAttendance"));
       if (this.authorizationService.isWorker())
         this.dataSources.menuItems.push(new MenuItem("HEADERS.NOTIFICATIONS", "/notifications"));
+      if (this.authorizationService.isWorker())
+        this.dataSources.menuItems.push(new MenuItem("HEADERS.NOTIFICATION_HISTORY", "/notificationHistories"));
     },
     fillLanguages: () => {
       this.dataSources.languageItems = new Array<LanguageItem>();

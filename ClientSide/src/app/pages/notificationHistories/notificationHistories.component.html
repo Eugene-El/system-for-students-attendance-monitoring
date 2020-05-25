@@ -1,0 +1,46 @@
+
+<h1>
+  {{ 'HEADERS.NOTIFICATION_HISTORY' | translate }}
+</h1>
+
+<div style="margin-top: 20px;">
+
+  <mat-form-field class="w50pct">
+    <mat-label>{{ 'COMMON.FILTER' | translate }}</mat-label>
+    <input matInput (keyup)="methods.applyFilter($event)" >
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSources.sortedNotificationHistories" matSort class="w100pct" (matSortChange)="methods.sortData($event)">
+
+    <ng-container matColumnDef="sendingTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="w20pct"> {{ 'NOTIFICATION_HISTORY.SENDING_TIME' | translate }} </th>
+      <td mat-cell *matCellDef="let row" > {{row.sendingTime}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="w10pct"> {{ 'NOTIFICATION_HISTORY.STATUS' | translate }} </th>
+      <td mat-cell *matCellDef="let row" > {{ dataSources.notificationStatuses[row.status] | translate }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="w20pct"> {{ 'NOTIFICATION_HISTORY.FULL_NAME' | translate }} </th>
+      <td mat-cell *matCellDef="let row" > {{row.fullName}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="message">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="w30pct"> {{ 'NOTIFICATION_HISTORY.MESSAGE' | translate }} </th>
+      <td mat-cell *matCellDef="let row"> <span [title]="row.message">{{ methods.previewText(row.message) }}</span> </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="errorMessage">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="w20pct"> {{ 'NOTIFICATION_HISTORY.ERROR_MESSAGE' | translate }} </th>
+      <td mat-cell *matCellDef="let row" > {{row.errorMessage}} </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="['sendingTime', 'status', 'fullName', 'message', 'errorMessage']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['sendingTime', 'status', 'fullName', 'message', 'errorMessage'];">
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
+</div>

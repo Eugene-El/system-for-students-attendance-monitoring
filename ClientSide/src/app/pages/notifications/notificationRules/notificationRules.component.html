@@ -7,6 +7,8 @@
   <span> {{ 'COMMON.ADD' | translate }} </span>
 </button>
 
+<mat-icon style="margin: 15px; line-height: 1;" [title]="'NOTIFICATION_RULE.TOKENS' | translate">info</mat-icon>
+
 <div class="notification-rules-container">
 
   <div class="notification-rule" *ngFor="let notificationRule of dataSources.notificationRules;">

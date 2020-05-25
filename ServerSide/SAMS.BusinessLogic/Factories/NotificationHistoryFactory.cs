@@ -1,5 +1,7 @@
 ﻿using SAMS.BusinessLogic.DatabaseInterfaces;
 using SAMS.BusinessLogic.Entities;
+using SAMS.BusinessLogic.Models.Common;
+using SAMS.BusinessLogic.Models.NotificationHistories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +17,21 @@ namespace SAMS.BusinessLogic.Factories
             Database = database;
         }
 
-        public IQueryable<NotificationHistory> GetAll()
+        public IQueryable<NotificationHistoryModel> GetAll()
         {
-            return Database.NotificationHistoryService.GetAll();
+            var students = Database.StudentService.GetAll().Select(s => new SelectModel
+            {
+                Id = s.Id,
+                Title = s.Surname + " " + s.Name
+            }).ToList();
+            return Database.NotificationHistoryService.GetAll().ToList().Select(n => new NotificationHistoryModel {
+                Id = n.Id,
+                FullName = students.FirstOrDefault(st => st.Id == n.StudentId).Title,
+                SendingTime = n.SendingTime.ToString("dd.MM.yyyy hh:mm"),
+                Status = (int)n.Status,
+                Message = n.Message,
+                ErrorMessage = n.ErrorMessage
+            }).AsQueryable();
         }
 
         public void Add(NotificationHistory notificationHistory)

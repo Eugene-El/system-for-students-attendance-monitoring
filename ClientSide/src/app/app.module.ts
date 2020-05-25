@@ -42,6 +42,7 @@ import { AuthorizationComponent } from './pages/authorization/authorization.comp
 import { SeeOwnAttendanceComponent } from './pages/seeOwnAttendance/seeOwnAttendance.component';
 import { NotificationRulesComponent } from './pages/notifications/notificationRules/notificationRules.component';
 import { AreYouSurePopupComponent } from './common/components/areYouSurePopup/areYouSurePopup.component';
+import { NotificationHistoriesComponent } from './pages/notificationHistories/notificationHistories.component';
 
 
 // Handle no translation case
@@ -82,7 +83,8 @@ export const MY_FORMATS = {
       ConfigurationComponent,
       SeeOwnAttendanceComponent,
       NotificationRulesComponent,
-      AreYouSurePopupComponent
+      AreYouSurePopupComponent,
+      NotificationHistoriesComponent
    ],
    imports: [
       BrowserModule,

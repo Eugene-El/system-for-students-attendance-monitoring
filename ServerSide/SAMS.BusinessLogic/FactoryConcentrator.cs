@@ -80,5 +80,16 @@ namespace SAMS.BusinessLogic
                 return notificationRuleFactory;
             }
         }
+
+        private NotificationHistoryFactory notificationHistoryFactory;
+        public NotificationHistoryFactory NotificationHistoryFactory
+        {
+            get
+            {
+                if (notificationHistoryFactory == null)
+                    notificationHistoryFactory = new NotificationHistoryFactory(Database);
+                return notificationHistoryFactory;
+            }
+        }
     }
 }

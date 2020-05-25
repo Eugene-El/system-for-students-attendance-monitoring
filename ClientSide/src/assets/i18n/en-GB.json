@@ -31,7 +31,8 @@
         "STUDENTS": "Students",
         "CONFIGURATION": "Configuration",
         "SEE_OWN_ATTENDANCE": "See own attendance",
-        "NOTIFICATIONS": "Notifications"
+        "NOTIFICATIONS": "Notifications",
+        "NOTIFICATION_HISTORY": "Notification history"
     },
     "FACULTY": {
         "FACULTY": "Faculty",
@@ -122,9 +123,21 @@
         "ATTENDANCE_FOR_TIME_PERIOD": "Take attendance for time period (days)",
         "ATTENDANCE_LESS_THAN": "Notify, if attendance less than (procentage)",
         "MESSAGE": "Message",
+        "TOKENS": "You can use {{Name}}, {{Surname}}, {{StudentCode}}, {{AttendancePercent}} tokens in messages to inject data",
         "NOTIFICATION_METHODS": {
             "EMAIL": "Email",
             "SMS": "Sms"
+        }
+    },
+    "NOTIFICATION_HISTORY": {
+        "SENDING_TIME": "Sending time",
+        "STATUS": "Status",
+        "FULL_NAME": "Full name",
+        "MESSAGE": "Message",
+        "ERROR_MESSAGE": "Error message",
+        "STATUSES": {
+            "SUCCESS": "Success",
+            "ERROR": "Error"
         }
     }
 }
