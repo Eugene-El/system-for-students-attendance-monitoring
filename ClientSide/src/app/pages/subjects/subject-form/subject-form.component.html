@@ -1,44 +1,44 @@
 
 <h1>
-  <span *ngIf="page.subject == null || page.subject.id == 0; else name">{{ 'HEADERS.NEW_SUBJECT' | translate }}</span>
+  <span *ngIf="page.subject == null || page.subject.id == 0; else name">{{ 'SUBJECT.NEW_SUBJECT' | translate }}</span>
   <ng-template #name>{{ 'SUBJECT.SUBJECT' | translate }} {{ page.subject.code }}</ng-template>
 </h1>
 
 <div class="m20t data-form" *ngIf="page.subject != null">
   <mat-form-field class="short-field">
     <mat-label>{{ 'SUBJECT.CODE' | translate }}</mat-label>
-    <input required matInput [(ngModel)]="page.subject.code">
+    <input required matInput [(ngModel)]="page.subject.code" autocomplete="off">
   </mat-form-field>
 
   <mat-form-field class="long-field">
     <mat-label>{{ 'SUBJECT.TITLE' | translate }} (EN)</mat-label>
-    <input required matInput [(ngModel)]="page.subject.titleEn">
+    <input required matInput [(ngModel)]="page.subject.titleEn" autocomplete="off">
   </mat-form-field>
 
   <mat-form-field class="long-field">
     <mat-label>{{ 'SUBJECT.TITLE' | translate }} (LV)</mat-label>
-    <input required matInput [(ngModel)]="page.subject.titleLv">
+    <input required matInput [(ngModel)]="page.subject.titleLv" autocomplete="off">
   </mat-form-field>
 
   <mat-form-field class="long-field">
     <mat-label>{{ 'SUBJECT.TITLE' | translate }} (RU)</mat-label>
-    <input required matInput [(ngModel)]="page.subject.titleRu">
+    <input required matInput [(ngModel)]="page.subject.titleRu" autocomplete="off">
   </mat-form-field>
 
 
   <mat-form-field class="medium-field">
     <mat-label>{{ 'SUBJECT.SHORT_TITLE' | translate }} (EN)</mat-label>
-    <input required matInput [(ngModel)]="page.subject.shortTitleEn">
+    <input required matInput [(ngModel)]="page.subject.shortTitleEn" autocomplete="off">
   </mat-form-field>
 
   <mat-form-field class="medium-field">
     <mat-label>{{ 'SUBJECT.SHORT_TITLE' | translate }} (LV)</mat-label>
-    <input required matInput [(ngModel)]="page.subject.shortTitleLv">
+    <input required matInput [(ngModel)]="page.subject.shortTitleLv" autocomplete="off">
   </mat-form-field>
 
   <mat-form-field class="medium-field">
     <mat-label>{{ 'SUBJECT.SHORT_TITLE' | translate }} (RU)</mat-label>
-    <input required matInput [(ngModel)]="page.subject.shortTitleRu">
+    <input required matInput [(ngModel)]="page.subject.shortTitleRu" autocomplete="off">
   </mat-form-field>
 
 </div>

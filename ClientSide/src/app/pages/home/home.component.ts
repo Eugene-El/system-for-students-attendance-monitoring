@@ -24,6 +24,9 @@ export class HomeComponent implements OnInit {
     this.loadingService.endLoading();
     this.methods.updateCurrentTime();
     this.methods.getData();
+    this.translateService.onLangChange.subscribe(() => {
+      this.methods.getData();
+    })
   }
 
   page = {
@@ -59,7 +62,7 @@ export class HomeComponent implements OnInit {
             this.translateService.instant("HOME.NOT_VISITED"),
           ];
           homeDataModel.facultyStatistics.forEach(st => {
-            this.dataSorces.chartData.push([st.attendancePercent, 100 - st.attendancePercent]);
+            this.dataSorces.chartData.push([st.attendancePercent.toFixed(2), (100 - st.attendancePercent).toFixed(2)]);
             this.dataSorces.chartTitles.push(st.title);
           });
 

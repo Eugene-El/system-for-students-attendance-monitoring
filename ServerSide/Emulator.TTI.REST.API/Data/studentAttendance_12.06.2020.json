@@ -1,0 +1,67 @@
+[
+  {
+    "stcode": 58788,
+    "attandance": [
+      {
+        "courseid": 115,
+        "all": 4,
+        "att": 3
+      },
+      {
+        "courseid": 112,
+        "all": 2,
+        "att": 2
+      },
+      {
+        "courseid": 120,
+        "all": 3,
+        "att": 2
+      }
+    ]
+  },
+  {
+    "stcode": 58753,
+    "attandance": [
+      {
+        "courseid": 115,
+        "all": 4,
+        "att": 4
+      },
+      {
+        "courseid": 112,
+        "all": 2,
+        "att": 1
+      },
+      {
+        "courseid": 120,
+        "all": 3,
+        "att": 0
+      }
+    ]
+  },
+  {
+    "stcode": 58767,
+    "attandance": [
+      {
+        "courseid": 115,
+        "all": 4,
+        "att": 0
+      },
+      {
+        "courseid": 112,
+        "all": 3,
+        "att": 0
+      },
+      {
+        "courseid": 120,
+        "all": 4,
+        "att": 1
+      },
+      {
+        "courseid": 118,
+        "all": 2,
+        "att": 0
+      }
+    ]
+  }
+]

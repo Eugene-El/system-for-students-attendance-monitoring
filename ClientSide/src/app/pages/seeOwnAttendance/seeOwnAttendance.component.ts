@@ -31,6 +31,10 @@ export class SeeOwnAttendanceComponent implements OnInit {
       this.methods.fillLabels();
       this.methods.filter();
     });
+    let color = [];
+    for (let i = 0; i < 64; i++)
+      color.push('rgba(20, 71, 116, 0.5)')
+    this.options.tsiColor = [{ backgroundColor: color }];
   }
 
   page = {
@@ -45,11 +49,7 @@ export class SeeOwnAttendanceComponent implements OnInit {
         backgroundColor: ['rgba(0,255,0,0.3)', 'rgba(255,0,0,0.3)'],
       }
     ],
-    tsiColor: [
-      {
-        backgroundColor: ['rgba(20, 71, 116, 0.5)'],
-      }
-    ],
+    tsiColor: [],
     labels: [],
     lineChartOptions: {
       scales : {

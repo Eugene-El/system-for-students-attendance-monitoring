@@ -19,7 +19,7 @@ namespace SAMS.REST.API.Controllers
         {
             try
             {
-                CheckAuthorization(Role.Worker);
+                //CheckAuthorization(Role.Worker);
                 return Ok(FactoryConcentrator.FacultyFactory.GetAllForGrid(CurrentLanguage).AsEnumerable());
             }
             catch (Exception exception)
@@ -33,7 +33,7 @@ namespace SAMS.REST.API.Controllers
         {
             try
             {
-                CheckAuthorization(Role.Worker);
+                //CheckAuthorization(Role.Worker);
                 return Ok(FactoryConcentrator.FacultyFactory.Get(id));
             }
             catch (Exception exception)

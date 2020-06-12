@@ -1,11 +1,41 @@
 {
+    "COMMON": {
+        "ADD": "Pievienot",
+        "ACTIONS": "Darbības",
+        "EDIT": "Rediģēt",
+        "FILTER": "Filter",
+        "SAVE": "Saglabāt",
+        "DELETE": "Dzēst",
+        "BACK": "Atpakaļ",
+        "CLOSE": "Aizvērt",
+        "CANCEL": "Atcelt",
+        "YES": "Jā",
+        "NO": "Nē",
+        "SUCESSFULLY_SAVED": "Veiksmīgi saglabāts",
+        "PLEASE_FILL_ALL_FIELDS": "Lūdzu, aizpildiet visus obligātos laukus!",
+        "ARE_YOU_SURE": "Vai esat pārliecināts?"
+    },
+    "AUTHORIZATION": {
+        "LOGIN": "Login",
+        "PASSWORD": "Parole",
+        "LOG_IN": "Pieslēgties",
+        "UNAUTHORIZED": "Jūs esat neatļauts vai jums nav atļauju šai darbībai"
+    },
     "HOME": {
-        "HELLO_MESSAGE": "Laipni lūdzam Studentu apmeklējumu uzraudzības sistēmā"
+        "HELLO_MESSAGE": "Laipni lūdzam Studentu apmeklētības uzraudzības sistēmā",
+        "CURRENT_TIME": "Pašreizējais laiks",
+        "CURRENT_ONLINE": "Pašreiz tiešsaistē",
+        "VISITED": "Apmeklēts (procentos)",
+        "NOT_VISITED": "Nav apmeklēts (procentos)"
     },
     "HEADERS": {
-        "HOME": "Mājas lappa",
+        "HOME": "Mājas",
         "FACULTIES": "Fakultātes",
         "SUBJECTS": "Priekšmeti",
-        "STUDENTS": "Studenti"
+        "STUDENTS": "Studenti",
+        "CONFIGURATION": "Konfigurācija",
+        "SEE_OWN_ATTENDANCE": "Skatiet savu apmeklējumu",
+        "NOTIFICATIONS": "Paziņojumi",
+        "NOTIFICATION_HISTORY": "Paziņojumu vēsture"
     }
 }
